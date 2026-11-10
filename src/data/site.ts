@@ -21,7 +21,8 @@ export interface SiteConfig {
   footerLinks: Array<{ label: string; href: string }>;
 }
 
-export const SITE_URL = "https://caringforagingparents.page";
+// Override with PUBLIC_SITE_URL when the custom domain is active in Cloudflare Pages.
+export const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://caring-for-aging-parents.pages.dev";
 // Set PUBLIC_GOOGLE_SITE_VERIFICATION in the build environment after copying the token from Search Console.
 export const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? "";
 

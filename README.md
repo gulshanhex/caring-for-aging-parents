@@ -69,7 +69,7 @@ npm run deploy:workers
 
 All site configuration lives exclusively in **`src/data/site.ts`** and **`src/data/products.ts`**. Nothing is hardcoded in page templates.
 
-- [ ] **Domain (`src/data/site.ts` -> `SITE_URL`):** Confirm `https://caringforagingparents.page` is your final live domain (used automatically for canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, and `sitemap-index.xml`).
+- [ ] **Domain (`PUBLIC_SITE_URL`):** Set the Cloudflare Pages build environment variable to the actual live origin (currently `https://caring-for-aging-parents.pages.dev`; change it to `https://caringforagingparents.page` only after that custom domain resolves). This value drives canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, and `sitemap-index.xml`.
 - [ ] **Gumroad Store & Free Sample URLs (`src/data/site.ts`):**
   - Replace `gumroadStoreUrl` (`https://caringforagingparents.gumroad.com`) with your live Gumroad profile URL.
   - Replace `freeSampleUrl` (`https://caringforagingparents.gumroad.com/l/free-sample-handover-page`) with your live `$0` Gumroad product URL.
