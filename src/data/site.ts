@@ -22,6 +22,8 @@ export interface SiteConfig {
 }
 
 export const SITE_URL = "https://caringforagingparents.page";
+// Set PUBLIC_GOOGLE_SITE_VERIFICATION in the build environment after copying the token from Search Console.
+export const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? "";
 
 export const siteConfig: SiteConfig = {
   name: "Caring for Aging Parents",

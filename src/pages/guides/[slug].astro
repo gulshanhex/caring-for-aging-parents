@@ -33,7 +33,7 @@ const pagePath = `/guides/${guide.id.replace(/\.md$/, '')}/`;
   title={seoTitle}
   description={guide.data.description}
   canonicalPath={pagePath}
-  ogImage={guide.data.coverImage}
+  ogImage="/og/og-1200x630.jpg"
   breadcrumbs={[
     { label: "Guides", href: "/guides/" },
     { label: guide.data.title, href: pagePath },

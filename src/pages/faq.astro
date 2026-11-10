@@ -44,12 +44,26 @@ const faqs = [
     a: "No. Our sheets are strictly plain-English organizational tools for everyday family logistics, contact lists, and household routines. They do not provide medical, legal, or financial advice. Please speak to a qualified professional for those matters.",
   },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 ---
 <BaseLayout
   title="Frequently Asked Questions | Caring for Aging Parents"
   description="Plain answers about downloading, printing, and using our large-print family caregiving PDF sheets, plus Gumroad checkout details."
   canonicalPath="/faq/"
   breadcrumbs={[{ label: "FAQ", href: "/faq/" }]}
+  faqJsonLd={faqJsonLd}
 >
   <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
     <div class="prose-measure">

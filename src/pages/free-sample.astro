@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../data/site";
+import ShareButton from "../components/ShareButton.astro";
 ---
 <BaseLayout
   title="Free Sample Printable Page | Caring for Aging Parents"
@@ -49,6 +50,14 @@ import { siteConfig } from "../data/site";
           >
             Get the free sample sheet ($0 on Gumroad)
           </a>
+          <div class="mt-4">
+            <ShareButton
+              url={new URL("/free-sample/", siteConfig.url).toString()}
+              title="Free sample large-print caregiving sheet"
+              text="Try this free large-print caregiving sample sheet from Caring for Aging Parents."
+              label="Share the sample"
+            />
+          </div>
         </div>
       </div>
 

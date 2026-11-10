@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../data/site";
+import ShareButton from "./ShareButton.astro";
 
 interface Props {
   currentPath?: string;
@@ -24,42 +25,7 @@ const { currentPath = "/" } = Astro.props;
       </span>
     </a>
 
-    <!-- Mobile Navigation (<details> with zero client JS, visible below 768px) -->
-    <details class="mobile-nav">
-      <summary aria-label="Toggle navigation menu" class="mobile-menu-btn">
-        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-        <span>Menu</span>
-      </summary>
-      <nav aria-label="Mobile navigation" class="mobile-nav-panel">
-        <ul class="mobile-nav-list nav-list">
-          {
-            siteConfig.navLinks.map((link) => {
-              const isActive =
-                currentPath === link.href ||
-                (link.href !== "/" && currentPath.startsWith(link.href));
-              return (
-                <li>
-                  <a
-                    href={link.href}
-                    aria-current={isActive ? "page" : undefined}
-                    class:list={["mobile-nav-link", isActive && "is-active"]}
-                  >
-                    <span>{link.label}</span>
-                    <span aria-hidden="true" class="font-bold">&rarr;</span>
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </nav>
-    </details>
-
-    <!-- Tablet & Desktop Navigation (5 large text links, visible from 768px+) -->
+    <!-- Desktop navigation; phones and tablets use the fixed app-style bottom navigation. -->
     <nav aria-label="Main navigation" class="desktop-nav">
       <ul class="desktop-nav-list nav-list">
         {
@@ -82,5 +48,6 @@ const { currentPath = "/" } = Astro.props;
         }
       </ul>
     </nav>
+    <ShareButton url={siteConfig.url} title={siteConfig.name} text={siteConfig.tagline} compact />
   </div>
 </header>

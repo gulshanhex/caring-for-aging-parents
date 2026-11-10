@@ -84,6 +84,7 @@ All site configuration lives exclusively in **`src/data/site.ts`** and **`src/da
   - Replace `hello@caringforagingparents.page` with your active monitored inbox.
 - [ ] **Social Profile Links (`src/data/site.ts` -> `social`):**
   - Replace `facebookUrl` and `pinterestUrl` placeholders with your live Facebook Page and Pinterest profile URLs.
+- [ ] **Google Search Console verification:** Add the token from Search Console as the Cloudflare Pages build environment variable `PUBLIC_GOOGLE_SITE_VERIFICATION`. The layout emits the `google-site-verification` meta tag only when this value is present.
 - [ ] **Privacy Policy & Disclaimer Review (`src/pages/privacy.astro`, `src/pages/disclaimer.astro`):**
   - Review both pages to ensure they match your business entity details and jurisdiction before going live.
 - [ ] **Optional Analytics (`src/data/site.ts` -> `analytics`):**
