@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" fill="none">
+  <!-- Warm desk background -->
+  <rect width="1200" height="1200" fill="#FAF8EC"/>
+  <path d="M0 0 L 1200 0 L 1200 1200 L 0 1200 Z" fill="#81977A" fill-opacity="0.12"/>
+  <circle cx="180" cy="180" r="240" fill="#B96038" fill-opacity="0.10"/>
+  <circle cx="1040" cy="1020" r="260" fill="#015A67" fill-opacity="0.08"/>
+
+  <!-- Warm brown desk mat -->
+  <rect x="95" y="75" width="1010" height="1050" rx="44" fill="#52332A"/>
+
+  <!-- Underlying second sheet -->
+  <rect x="175" y="125" width="820" height="950" rx="20" transform="rotate(-2 585 600)" fill="#FAF8EC" fill-opacity="0.88"/>
+
+  <!-- Main top-down US Letter paper sheet -->
+  <rect x="180" y="120" width="820" height="960" rx="18" fill="#FFFFFF"/>
+
+  <!-- Sheet top header bar (abstract, no text) -->
+  <rect x="240" y="175" width="380" height="30" rx="15" fill="#015A67"/>
+  <rect x="780" y="175" width="160" height="30" rx="15" fill="#81977A" fill-opacity="0.45"/>
+  <rect x="240" y="222" width="700" height="6" rx="3" fill="#FAF8EC"/>
+
+  
+            <rect x="240" y="260" width="700" height="145" rx="14" fill="#FAF8EC"/>
+            <rect x="268" y="286" width="44" height="36" rx="8" fill="#015A67"/>
+            <rect x="330" y="286" width="210" height="18" rx="9" fill="#015A67"/>
+            <rect x="330" y="312" width="360" height="14" rx="7" fill="#81977A" fill-opacity="0.55"/>
+            <rect x="268" y="348" width="300" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="600" y="348" width="310" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="268" y="374" width="260" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            <rect x="600" y="374" width="240" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            
+
+            <rect x="240" y="435" width="700" height="145" rx="14" fill="#FAF8EC"/>
+            <rect x="268" y="461" width="44" height="36" rx="8" fill="#52332A"/>
+            <rect x="330" y="461" width="210" height="18" rx="9" fill="#52332A"/>
+            <rect x="330" y="487" width="360" height="14" rx="7" fill="#81977A" fill-opacity="0.55"/>
+            <rect x="268" y="523" width="300" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="600" y="523" width="310" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="268" y="549" width="260" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            <rect x="600" y="549" width="240" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            
+
+            <rect x="240" y="610" width="700" height="145" rx="14" fill="#FAF8EC"/>
+            <rect x="268" y="636" width="44" height="36" rx="8" fill="#015A67"/>
+            <rect x="330" y="636" width="210" height="18" rx="9" fill="#015A67"/>
+            <rect x="330" y="662" width="360" height="14" rx="7" fill="#81977A" fill-opacity="0.55"/>
+            <rect x="268" y="698" width="300" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="600" y="698" width="310" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="268" y="724" width="260" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            <rect x="600" y="724" width="240" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            
+
+            <rect x="240" y="785" width="700" height="145" rx="14" fill="#FAF8EC"/>
+            <rect x="268" y="811" width="44" height="36" rx="8" fill="#52332A"/>
+            <rect x="330" y="811" width="210" height="18" rx="9" fill="#52332A"/>
+            <rect x="330" y="837" width="360" height="14" rx="7" fill="#81977A" fill-opacity="0.55"/>
+            <rect x="268" y="873" width="300" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="600" y="873" width="310" height="14" rx="7" fill="#52332A" fill-opacity="0.25"/>
+            <rect x="268" y="899" width="260" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            <rect x="600" y="899" width="240" height="12" rx="6" fill="#52332A" fill-opacity="0.18"/>
+            
+
+  <!-- Pen resting on the right side of the desk/sheet -->
+  <g transform="translate(1035, 360) rotate(8)">
+    <rect x="0" y="0" width="28" height="420" rx="14" fill="#B96038"/>
+    <rect x="0" y="55" width="28" height="28" fill="#FAF8EC"/>
+    <rect x="24" y="55" width="10" height="110" rx="5" fill="#FAF8EC"/>
+    <polygon points="0,405 28,405 14,455" fill="#E89B69"/>
+    <polygon points="9,438 19,438 14,455" fill="#015A67"/>
+  </g>
+</svg>

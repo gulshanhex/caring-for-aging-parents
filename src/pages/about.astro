@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/site";
+---
+<BaseLayout
+  title="About Our Printable Sheets | Caring for Aging Parents"
+  description="Why we make calm, large-print, fill-in-by-hand PDF sheets to help adult children and aging parents stay organized around the kitchen table."
+  canonicalPath="/about/"
+  breadcrumbs={[{ label: "About", href: "/about/" }]}
+>
+  <article class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="prose-measure space-y-8">
+      <h1 class="font-serif text-[#015A67]">
+        Why we make plain paper sheets for family caregiving
+      </h1>
+
+      <p class="text-[#111111]">
+        When you are in your forties, fifties, or sixties and start helping an aging parent with everyday errands, appointments, and household chores, most of the stress does not come from one big problem. It comes from a hundred small details floating around in your head at eleven o'clock at night.
+      </p>
+
+      <div class="overflow-hidden rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC]">
+        <img
+          src="/images/about/about-desk.webp"
+          width="1200"
+          height="800"
+          alt="Flat illustration of a calm wooden desk with an open caregiving notebook, a pen, and a warm cup of tea."
+          loading="lazy"
+          decoding="async"
+          class="h-auto w-full object-cover"
+        />
+      </div>
+
+      <h2 class="font-serif text-[#015A67]">
+        Built for two generations at once
+      </h2>
+      <p class="text-[#111111]">
+        Most caregiving tools fail because they only work for one person in the family. If an adult son or daughter sets up a complicated spreadsheet or a phone app, their brothers and sisters forget the login, and their 78-year-old parent cannot see it at all.
+      </p>
+      <p class="text-[#111111]">
+        A printed sheet of paper on the kitchen counter works for everyone in the room:
+      </p>
+      <ul class="list-disc space-y-3 pl-6 text-[#111111]">
+        <li>
+          <strong>For parents aged 70 and up:</strong> The type is large, the ink is dark, and the layout is calm and uncluttered. Your parent can see their own schedule and phone directory without tapping through menus.
+        </li>
+        <li>
+          <strong>For adult children and siblings:</strong> When you arrive after work, you can see in thirty seconds what happened earlier in the week and what needs doing today.
+        </li>
+      </ul>
+
+      <h2 class="font-serif text-[#015A67]">
+        What we make—and what we never do
+      </h2>
+      <p class="text-[#111111]">
+        We make simple, fill-in-by-hand organizational tools: handover logs, fridge phone directories, and household location pointer sheets.
+      </p>
+      <p class="text-[#111111]">
+        Just as important is what we do not do:
+      </p>
+      <ul class="list-disc space-y-3 pl-6 text-[#111111]">
+        <li>
+          <strong>No medical, legal, or financial advice:</strong> We never tell families what decisions to make. We only provide clean blank boxes for your everyday household coordination.
+        </li>
+        <li>
+          <strong>No passwords or account numbers:</strong> Our sheets are designed around physical household pointers (like which drawer holds a folder or where the spare keys hang) and explicitly remind families never to write down passwords, PINs, or account numbers.
+        </li>
+        <li>
+          <strong>No subscriptions or accounts:</strong> You buy a PDF once on Gumroad, download it to your computer, and print as many pages as your family needs.
+        </li>
+      </ul>
+
+      <div class="rounded-xl border-2 border-[#015A67] bg-[#FAF8EC] p-6">
+        <h2 class="font-serif text-[#015A67]">
+          Start with a free sample page
+        </h2>
+        <p class="mt-3 text-[#111111]">
+          If you want to see how our large print looks in your parent's kitchen, grab the free one-page sample first and print it at home.
+        </p>
+        <div class="mt-5 flex flex-col gap-4 sm:flex-row">
+          <a href="/free-sample/" class="btn btn-primary text-center">
+            Get the free sample
+          </a>
+          <a href="/shop/" class="btn btn-secondary text-center">
+            Browse all printables
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

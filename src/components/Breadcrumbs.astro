@@ -1,0 +1,58 @@
+---
+import { siteConfig } from "../data/site";
+
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+const allItems: BreadcrumbItem[] = [{ label: "Home", href: "/" }, ...items];
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: allItems.map((item, idx) => ({
+    "@type": "ListItem",
+    position: idx + 1,
+    name: item.label,
+    item: new URL(item.href, siteConfig.url).toString(),
+  })),
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+{
+  items.length > 0 && (
+    <nav aria-label="Breadcrumb" class="no-print mb-6">
+      <ol class="flex flex-wrap items-center gap-2 text-[#444444]">
+        {allItems.map((item, index) => {
+          const isLast = index === allItems.length - 1;
+          return (
+            <li class="flex items-center gap-2">
+              {isLast ? (
+                <span aria-current="page" class="font-bold text-[#111111]">
+                  {item.label}
+                </span>
+              ) : (
+                <>
+                  <a
+                    href={item.href}
+                    class="inline-flex min-h-[48px] items-center text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+                  >
+                    {item.label}
+                  </a>
+                  <span aria-hidden="true" class="text-[#444444]">/</span>
+                </>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  )
+}

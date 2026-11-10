@@ -1,0 +1,109 @@
+---
+import { siteConfig } from "../data/site";
+const currentYear = 2026;
+---
+<footer class="mt-16 border-t-2 border-[#D8D5C5] bg-[#FAF8EC] text-[#111111]">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Mandatory non-negotiable organizational disclaimer banner -->
+    <div class="mb-10 rounded-xl border-2 border-[#52332A] bg-[#FFFFFF] p-6">
+      <p class="max-w-[65ch] font-bold text-[#111111]">
+        {siteConfig.disclaimerText}
+      </p>
+      <p class="mt-2 max-w-[65ch] text-[#444444]">
+        Read our full <a href="/disclaimer/">Organizational Tools Disclaimer</a> for details on how these printable sheets are intended to be used.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+      <!-- Column 1: Brand & payment note -->
+      <div>
+        <div class="flex items-center gap-3">
+          <img
+            src="/images/brand/logo-1024.webp"
+            width="48"
+            height="48"
+            alt="Caring for Aging Parents logo"
+            loading="lazy"
+            decoding="async"
+            class="h-12 w-12 shrink-0 rounded-full border border-[#D8D5C5] bg-[#FFFFFF] object-contain p-1"
+          />
+          <span class="font-serif text-[1.35rem] font-bold text-[#015A67]">
+            {siteConfig.name}
+          </span>
+        </div>
+        <p class="mt-3 max-w-[45ch] text-[#111111]">
+          {siteConfig.tagline}.
+        </p>
+        <p class="mt-4 font-bold text-[#444444]">
+          {siteConfig.paymentNotice}
+        </p>
+      </div>
+
+      <!-- Column 2: Explore links -->
+      <nav aria-label="Footer explore links">
+        <h2 class="font-serif text-[1.35rem] font-bold text-[#015A67]">
+          Printable Sheets &amp; Guides
+        </h2>
+        <ul class="mt-3 flex flex-col gap-1">
+          {
+            siteConfig.navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="inline-flex min-h-[48px] items-center py-1.5 text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- Column 3: Policies & Help links -->
+      <nav aria-label="Footer policy and support links">
+        <h2 class="font-serif text-[1.35rem] font-bold text-[#015A67]">
+          Policies &amp; Questions
+        </h2>
+        <ul class="mt-3 flex flex-col gap-1">
+          {
+            siteConfig.footerLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="inline-flex min-h-[48px] items-center py-1.5 text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={siteConfig.social.pinterestUrl}
+              rel="noopener noreferrer"
+              class="inline-flex min-h-[48px] items-center py-1.5 text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+            >
+              Pinterest
+            </a>
+          </li>
+          <li>
+            <a
+              href={siteConfig.social.facebookUrl}
+              rel="noopener noreferrer"
+              class="inline-flex min-h-[48px] items-center py-1.5 text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+            >
+              Facebook
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mt-10 border-t border-[#D8D5C5] pt-6 text-[#444444]">
+      <p>
+        &copy; {currentYear} {siteConfig.name}. All rights reserved. Built for clear, unhurried reading on screen and on paper.
+      </p>
+    </div>
+  </div>
+</footer>

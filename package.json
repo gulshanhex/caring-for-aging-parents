@@ -1,0 +1,28 @@
+{
+  "name": "caring-for-aging-parents",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Large-print, fill-in-by-hand printable PDF sheets that help adult children and families stay organized while caring for an aging parent.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy:pages": "astro build && wrangler pages deploy ./dist --project-name=caring-for-aging-parents",
+    "deploy:workers": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/atkinson-hyperlegible": "^5.1.0",
+    "@fontsource/source-serif-4": "^5.1.0",
+    "@tailwindcss/vite": "^4.0.9",
+    "astro": "^5.4.0",
+    "tailwindcss": "^4.0.9"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.3",
+    "wrangler": "^3.109.0"
+  }
+}

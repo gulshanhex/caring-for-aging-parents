@@ -1,0 +1,348 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { siteConfig } from "../data/site";
+import { products } from "../data/products";
+import { getCollection } from "astro:content";
+
+const allGuides = (await getCollection("guides")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const faqTeasers = [
+  {
+    q: "Do I need special software or an app to use these sheets?",
+    a: "No. Every product is a standard PDF file that you print on paper and fill in by hand with an everyday pen. You do not need an app, an account login, or a subscription.",
+  },
+  {
+    q: "What paper size do the printables use?",
+    a: "All sheets are formatted for standard US Letter paper (8.5 by 11 inches) and print cleanly in black and white on any home inkjet or laser printer. They can also be printed on A4 paper using your printer's Fit to Printable Area setting.",
+  },
+  {
+    q: "How do I receive my files after buying?",
+    a: "When you click a Buy button, you complete your purchase securely on Gumroad. Right after checkout, Gumroad gives you an instant download link and sends a copy to your email address.",
+  },
+];
+---
+<BaseLayout
+  title="Caring for Aging Parents | Printable Checklists & Planners"
+  description="Large-print, fill-in-by-hand printable PDF sheets that help adult children and families stay organized while caring for an aging parent."
+  canonicalPath="/"
+>
+  <!-- Hero Section (Etsy asymmetric split on warm cream band) -->
+  <section class="border-b border-[#D8D5C5] bg-[#FAF8EC] py-12 md:py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-6">
+          <h1 class="font-serif text-[#015A67]">
+            Large-print, fill-in-by-hand sheets that keep family caregiving organized
+          </h1>
+          <p class="mt-5 max-w-[60ch] text-[#111111]">
+            When you are helping an aging parent with everyday errands, rides, and household routines, tiny phone screens and scattered text threads only add stress. Our plain-English printable PDFs sit right on the kitchen counter so the whole family stays on the same page.
+          </p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a href="/shop/" class="btn btn-cta text-center">
+              See the printables
+            </a>
+            <a href="/free-sample/" class="btn btn-primary text-center">
+              Get the free sample
+            </a>
+          </div>
+          <p class="mt-4 max-w-[60ch] text-[#444444]">
+            Prints in black and white on standard US Letter paper. Made for comfortable reading at arm's length.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="overflow-hidden rounded-xl border-2 border-[#D8D5C5] bg-[#FFFFFF]">
+            <img
+              src="/images/hero/hero-home.webp"
+              width="1600"
+              height="1000"
+              alt="Flat illustration of an adult daughter at a sunny kitchen table with a phone, a printed large-print sheet, a pen, and a cup of tea."
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="h-auto w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Steps Section: Print it, Fill it in by hand, Share it with family -->
+  <section class="bg-[#FFFFFF] py-14 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-[65ch]">
+        <h2 class="font-serif text-[#015A67]">
+          How these sheets work in real life
+        </h2>
+        <p class="mt-3 text-[#111111]">
+          No passwords to remember, no tiny spreadsheets on a phone, and nothing for your parent to learn on a computer.
+        </p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="flex flex-col rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-6">
+          <div class="overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FFFFFF]">
+            <img
+              src="/images/steps/print.webp"
+              width="900"
+              height="900"
+              alt="Flat illustration of a home printer with a neat stack of large-print pages."
+              loading="lazy"
+              decoding="async"
+              class="h-auto w-full object-cover"
+            />
+          </div>
+          <h3 class="mt-5 font-serif text-[#015A67]">
+            1. Print it
+          </h3>
+          <p class="mt-2 text-[#111111]">
+            Download the PDF once and print as many copies as your family needs on regular US Letter paper in plain black and white ink.
+          </p>
+        </div>
+
+        <div class="flex flex-col rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-6">
+          <div class="overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FFFFFF]">
+            <img
+              src="/images/steps/fill.webp"
+              width="900"
+              height="900"
+              alt="Flat illustration of hands holding a pen and writing on a large-print checklist."
+              loading="lazy"
+              decoding="async"
+              class="h-auto w-full object-cover"
+            />
+          </div>
+          <h3 class="mt-5 font-serif text-[#015A67]">
+            2. Fill it in by hand
+          </h3>
+          <p class="mt-2 text-[#111111]">
+            Sit down with a pen and write inside roomy, high-contrast boxes. Everything is spaced so handwriting stays neat and easy to read.
+          </p>
+        </div>
+
+        <div class="flex flex-col rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-6">
+          <div class="overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FFFFFF]">
+            <img
+              src="/images/steps/share.webp"
+              width="900"
+              height="900"
+              alt="Flat illustration of three adult siblings gathered around one shared caregiving binder."
+              loading="lazy"
+              decoding="async"
+              class="h-auto w-full object-cover"
+            />
+          </div>
+          <h3 class="mt-5 font-serif text-[#015A67]">
+            3. Share it with family
+          </h3>
+          <p class="mt-2 text-[#111111]">
+            Leave the clipboard on the kitchen counter or tape the phone list to the fridge so siblings, helpers, and your parent see the same notes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Featured Product Cards -->
+  <section class="border-t border-[#D8D5C5] bg-[#FFFFFF] py-14 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div class="max-w-[65ch]">
+          <h2 class="font-serif text-[#015A67]">
+            Printable organizational sheets
+          </h2>
+          <p class="mt-3 text-[#111111]">
+            Focused, single-purpose PDF packs for everyday family coordination. Buy once and print whenever you need a fresh page.
+          </p>
+        </div>
+        <a href="/shop/" class="btn btn-secondary shrink-0">
+          View all printables
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {products.map((product) => <ProductCard product={product} headingLevel="h3" />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Large Print on Paper Section -->
+  <section class="border-y border-[#D8D5C5] bg-[#FAF8EC] py-14 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-[65ch]">
+        <h2 class="font-serif text-[#015A67]">
+          Why large print on paper works better than another app
+        </h2>
+        <p class="mt-4 text-[#111111]">
+          When an adult child is juggling work, their own household, and visits to a parent's home, complicated digital tools often create more work for one person. Paper sits calmly in the room where help actually happens.
+        </p>
+
+        <ul class="mt-6 space-y-4 pl-6 list-disc text-[#111111]">
+          <li>
+            <strong>Comfortable for eyes aged 70 and up:</strong> Large headings, dark lines, and uncluttered white space mean your parent can read their own calendar and phone list without squinting.
+          </li>
+          <li>
+            <strong>Visible to everyone who walks in the kitchen:</strong> A brother stopping by after work or a neighbor bringing groceries can check the clipboard in thirty seconds without needing a login link.
+          </li>
+          <li>
+            <strong>Works when phones are locked or batteries are dead:</strong> Important everyday phone numbers and household location pointers stay right on the counter or refrigerator door.
+          </li>
+          <li>
+            <strong>Private by design:</strong> What you write by hand stays in your parent's house—never uploaded to a cloud database.
+          </li>
+        </ul>
+
+        <p class="mt-6">
+          Want to make sure your home printer keeps the boxes full size? Read our <a href="/how-to-print/">step-by-step printing guide and 30-second readability test</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Sample Band -->
+  <section class="bg-[#FFFFFF] py-14 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-xl border-2 border-[#015A67] bg-[#FAF8EC] p-6 sm:p-10">
+        <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <h2 class="font-serif text-[#015A67]">
+              Try a free sample sheet on your own printer first
+            </h2>
+            <p class="mt-4 max-w-[60ch] text-[#111111]">
+              Before spending a dime, download our free one-page sample PDF. Print it out, hold it at arm's length under your parent's kitchen light, and test how comfortable the handwriting boxes feel with your favorite pen.
+            </p>
+            <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href={siteConfig.freeSampleUrl}
+                class="btn btn-cta text-center"
+                rel="noopener noreferrer"
+              >
+                Get the free sample ($0 on Gumroad)
+              </a>
+              <a href="/free-sample/" class="btn btn-secondary text-center">
+                What is in the free sample
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FFFFFF]">
+              <img
+                src="/images/sample/free-sample.webp"
+                width="1200"
+                height="900"
+                alt="Flat illustration of three printed large-print sample sheets fanned out on a wooden desk beside a pen."
+                loading="lazy"
+                decoding="async"
+                class="h-auto w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Guide Teasers -->
+  <section class="border-t border-[#D8D5C5] bg-[#FAF8EC] py-14 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div class="max-w-[65ch]">
+          <h2 class="font-serif text-[#015A67]">
+            Practical guides for staying organized
+          </h2>
+          <p class="mt-3 text-[#111111]">
+            Short, plain-English articles on setting up a kitchen binder, printing readable pages, and sharing everyday tasks among siblings.
+          </p>
+        </div>
+        <a href="/guides/" class="btn btn-secondary shrink-0">
+          Read all guides
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {
+          allGuides.map((guide) => (
+            <article class="flex flex-col justify-between rounded-xl border-2 border-[#D8D5C5] bg-[#FFFFFF] p-6">
+              <div>
+                <a
+                  href={`/guides/${guide.id}/`}
+                  class="block overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FAF8EC]"
+                >
+                  <img
+                    src={guide.data.coverImage}
+                    width={guide.data.coverWidth}
+                    height={guide.data.coverHeight}
+                    alt={guide.data.coverAlt}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-auto w-full object-cover"
+                  />
+                </a>
+                <p class="mt-4 font-bold text-[#444444]">
+                  {guide.data.readingTime}
+                </p>
+                <h3 class="mt-2 font-serif text-[#015A67]">
+                  <a
+                    href={`/guides/${guide.id}/`}
+                    class="text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+                  >
+                    {guide.data.title}
+                  </a>
+                </h3>
+                <p class="mt-3 text-[#111111]">
+                  {guide.data.description}
+                </p>
+              </div>
+              <div class="mt-6 pt-2">
+                <a href={`/guides/${guide.id}/`}>
+                  Read this guide
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Short FAQ Teaser -->
+  <section class="border-t border-[#D8D5C5] bg-[#FFFFFF] py-14 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-[65ch]">
+        <h2 class="font-serif text-[#015A67]">
+          Common questions
+        </h2>
+        <p class="mt-3 text-[#111111]">
+          Plain answers about how our PDF sheets print and work.
+        </p>
+
+        <div class="mt-8 space-y-4">
+          {
+            faqTeasers.map((item) => (
+              <details class="rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-5">
+                <summary class="font-bold text-[#015A67]">
+                  <span>{item.q}</span>
+                  <span aria-hidden="true" class="ml-4 text-[1.25rem] font-bold text-[#015A67]">+</span>
+                </summary>
+                <p class="mt-4 border-t border-[#D8D5C5] pt-4 text-[#111111]">
+                  {item.a}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+
+        <div class="mt-8">
+          <a href="/faq/" class="btn btn-secondary">
+            Read all frequently asked questions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

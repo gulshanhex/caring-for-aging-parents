@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Page Not Found | Caring for Aging Parents"
+  description="We could not find that page. Use these helpful links to return to our printable caregiving sheets, free sample page, or guides."
+  canonicalPath="/404.html"
+>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="prose-measure rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-8">
+      <h1 class="font-serif text-[#015A67]">
+        We could not find that page (404)
+      </h1>
+      <p class="mt-4 text-[#111111]">
+        The link you followed may be mistyped or moved. Here are the main places on our site so you can find what you need right away:
+      </p>
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+        <a href="/" class="btn btn-primary text-center">
+          Go to the Home page
+        </a>
+        <a href="/shop/" class="btn btn-cta text-center">
+          See the printables
+        </a>
+        <a href="/free-sample/" class="btn btn-secondary text-center">
+          Get the free sample
+        </a>
+      </div>
+      <ul class="mt-8 list-disc space-y-2 pl-6 text-[#111111]">
+        <li><a href="/guides/">Read our family organization guides</a></li>
+        <li><a href="/how-to-print/">Read our printing and paper guide</a></li>
+        <li><a href="/faq/">Browse frequently asked questions</a></li>
+        <li><a href="/contact/">Contact us by email</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

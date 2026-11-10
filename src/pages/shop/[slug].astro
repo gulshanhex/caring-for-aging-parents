@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { products, type Product } from "../../data/products";
+import { siteConfig } from "../../data/site";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const pagePath = `/shop/${product.slug}/`;
+const pageTitle = `${product.title} | ${siteConfig.name}`;
+const pageDescription = product.short.slice(0, 158);
+
+// Product JSON-LD ONLY when status === "live", never AggregateRating or Review
+const productJsonLd =
+  product.status === "live"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.title,
+        description: product.short,
+        image: new URL(product.image, siteConfig.url).toString(),
+        brand: {
+          "@type": "Brand",
+          name: siteConfig.name,
+        },
+        offers: {
+          "@type": "Offer",
+          url: product.gumroadUrl,
+          priceCurrency: "USD",
+          price: product.numericPrice,
+          availability: "https://schema.org/InStock",
+        },
+      }
+    : null;
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath={pagePath}
+  ogImage={product.image}
+  breadcrumbs={[
+    { label: "Shop", href: "/shop/" },
+    { label: product.title, href: pagePath },
+  ]}
+  productJsonLd={productJsonLd}
+>
+  <article class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+      <!-- Left: Product preview image -->
+      <div class="lg:col-span-6">
+        <div class="overflow-hidden rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC]">
+          <img
+            src={product.image}
+            width={product.imageWidth}
+            height={product.imageHeight}
+            alt={product.imageAlt}
+            loading="lazy"
+            decoding="async"
+            class="h-auto w-full object-cover"
+          />
+        </div>
+        <p class="mt-3 text-[#444444]">
+          Illustration shows page layout style. Your downloaded PDF contains crisp, full-size black-and-white printable sheets.
+        </p>
+      </div>
+
+      <!-- Right: Key details & single Buy button -->
+      <div class="lg:col-span-6">
+        <p class="inline-block rounded-lg bg-[#FAF8EC] px-3.5 py-1.5 font-bold text-[#444444]">
+          {product.pages} pages &middot; {product.format}
+        </p>
+
+        <h1 class="mt-3 font-serif text-[#015A67]">
+          {product.title}
+        </h1>
+
+        <p class="mt-4 font-serif text-[1.75rem] font-bold text-[#111111]">
+          {product.price}
+        </p>
+
+        <p class="mt-4 max-w-[65ch] text-[#111111]">
+          {product.long}
+        </p>
+
+        <div class="mt-8">
+          <a
+            href={product.gumroadUrl}
+            class="btn btn-cta w-full text-center sm:w-auto"
+            rel="noopener noreferrer"
+          >
+            Buy {product.title} on Gumroad ({product.price})
+          </a>
+          <p class="mt-3 text-[#444444]">
+            {siteConfig.paymentNotice} Instant PDF download after checkout.
+          </p>
+        </div>
+
+        <!-- Organizational Disclaimer Box -->
+        <div class="mt-8 rounded-xl border-2 border-[#52332A] bg-[#FAF8EC] p-5">
+          <p class="font-bold text-[#111111]">
+            Organizational use only
+          </p>
+          <p class="mt-2 text-[#111111]">
+            {siteConfig.disclaimerText} Never write passwords, PINs, or account numbers on printed pages.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed sections in comfortable 65ch reading measure -->
+    <div class="mt-14 border-t border-[#D8D5C5] pt-12">
+      <div class="prose-measure space-y-12">
+        <section>
+          <h2 class="font-serif text-[#015A67]">
+            What is inside this printable pack
+          </h2>
+          <p class="mt-3 text-[#111111]">
+            You receive a {product.pages}-page PDF file ({product.format}) containing:
+          </p>
+          <ul class="mt-4 list-disc space-y-3 pl-6 text-[#111111]">
+            {product.whatsInside.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-[#015A67]">
+            Who this is for
+          </h2>
+          <p class="mt-3 text-[#111111]">
+            {product.whoItsFor}
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-[#015A67]">
+            How to use these sheets
+          </h2>
+          <ol class="mt-4 list-decimal space-y-3 pl-6 text-[#111111]">
+            {product.howToUse.map((step) => <li>{step}</li>)}
+          </ol>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-[#015A67]">
+            Print notes &amp; paper tips
+          </h2>
+          <ul class="mt-4 list-disc space-y-3 pl-6 text-[#111111]">
+            {product.printNotes.map((note) => <li>{note}</li>)}
+          </ul>
+          <p class="mt-4 text-[#111111]">
+            Need help checking your printer settings? Visit our <a href="/how-to-print/">How to Print guide</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

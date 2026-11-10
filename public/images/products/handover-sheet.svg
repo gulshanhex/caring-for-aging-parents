@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" fill="none">
+  <!-- Warm desk background -->
+  <rect width="1200" height="1200" fill="#FAF8EC"/>
+  <path d="M0 0 L 1200 0 L 1200 1200 L 0 1200 Z" fill="#81977A" fill-opacity="0.12"/>
+  <circle cx="180" cy="180" r="240" fill="#B96038" fill-opacity="0.10"/>
+  <circle cx="1040" cy="1020" r="260" fill="#015A67" fill-opacity="0.08"/>
+
+  <!-- Warm brown desk mat -->
+  <rect x="95" y="75" width="1010" height="1050" rx="44" fill="#52332A"/>
+
+  <!-- Underlying second sheet -->
+  <rect x="175" y="125" width="820" height="950" rx="20" transform="rotate(-2 585 600)" fill="#FAF8EC" fill-opacity="0.88"/>
+
+  <!-- Main top-down US Letter paper sheet -->
+  <rect x="180" y="120" width="820" height="960" rx="18" fill="#FFFFFF"/>
+
+  <!-- Sheet top header bar (abstract, no text) -->
+  <rect x="240" y="175" width="380" height="30" rx="15" fill="#015A67"/>
+  <rect x="780" y="175" width="160" height="30" rx="15" fill="#81977A" fill-opacity="0.45"/>
+  <rect x="240" y="222" width="700" height="6" rx="3" fill="#FAF8EC"/>
+
+  
+        <!-- Top summary row -->
+        <rect x="240" y="255" width="335" height="130" rx="12" fill="#FAF8EC"/>
+        <rect x="264" y="280" width="140" height="18" rx="9" fill="#015A67"/>
+        <rect x="264" y="314" width="270" height="14" rx="7" fill="#81977A" fill-opacity="0.45"/>
+        <rect x="264" y="342" width="220" height="14" rx="7" fill="#81977A" fill-opacity="0.45"/>
+
+        <rect x="605" y="255" width="335" height="130" rx="12" fill="#FAF8EC"/>
+        <rect x="629" y="280" width="150" height="18" rx="9" fill="#B96038"/>
+        <rect x="629" y="314" width="265" height="14" rx="7" fill="#81977A" fill-opacity="0.45"/>
+        <rect x="629" y="342" width="200" height="14" rx="7" fill="#81977A" fill-opacity="0.45"/>
+
+        <!-- Middle structured checklist rows -->
+        <rect x="240" y="415" width="700" height="230" rx="14" fill="#FAF8EC"/>
+        <rect x="268" y="442" width="220" height="20" rx="10" fill="#015A67"/>
+        <rect x="268" y="485" width="26" height="26" rx="6" fill="#015A67"/>
+        <rect x="312" y="491" width="560" height="14" rx="7" fill="#52332A" fill-opacity="0.28"/>
+        <rect x="268" y="532" width="26" height="26" rx="6" fill="#015A67"/>
+        <rect x="312" y="538" width="510" height="14" rx="7" fill="#52332A" fill-opacity="0.28"/>
+        <rect x="268" y="579" width="26" height="26" rx="6" fill="#81977A"/>
+        <rect x="312" y="585" width="460" height="14" rx="7" fill="#52332A" fill-opacity="0.28"/>
+
+        <!-- Bottom handover notes block -->
+        <rect x="240" y="675" width="700" height="250" rx="14" fill="#FAF8EC"/>
+        <rect x="268" y="705" width="200" height="20" rx="10" fill="#B96038"/>
+        <rect x="268" y="750" width="640" height="14" rx="7" fill="#52332A" fill-opacity="0.22"/>
+        <rect x="268" y="790" width="640" height="14" rx="7" fill="#52332A" fill-opacity="0.22"/>
+        <rect x="268" y="830" width="640" height="14" rx="7" fill="#52332A" fill-opacity="0.22"/>
+        <rect x="268" y="870" width="420" height="14" rx="7" fill="#52332A" fill-opacity="0.22"/>
+        
+
+  <!-- Pen resting on the right side of the desk/sheet -->
+  <g transform="translate(1035, 360) rotate(8)">
+    <rect x="0" y="0" width="28" height="420" rx="14" fill="#B96038"/>
+    <rect x="0" y="55" width="28" height="28" fill="#FAF8EC"/>
+    <rect x="24" y="55" width="10" height="110" rx="5" fill="#FAF8EC"/>
+    <polygon points="0,405 28,405 14,455" fill="#E89B69"/>
+    <polygon points="9,438 19,438 14,455" fill="#015A67"/>
+  </g>
+</svg>

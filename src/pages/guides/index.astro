@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { products } from "../../data/products";
+
+const guides = (await getCollection("guides")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+<BaseLayout
+  title="Family Organization Guides | Caring for Aging Parents"
+  description="Practical, plain-English guides on printing readable large-print pages, sharing a sibling handover routine, and organizing household locations safely."
+  canonicalPath="/guides/"
+  breadcrumbs={[{ label: "Guides", href: "/guides/" }]}
+>
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="prose-measure">
+      <h1 class="font-serif text-[#015A67]">
+        Practical guides for family caregiving logistics
+      </h1>
+      <p class="mt-4 text-[#111111]">
+        Short, unhurried guides focused strictly on everyday household organization—how to print pages that are comfortable to read, how siblings can share a kitchen clipboard, and how to write down where things live in the house without ever writing down passwords.
+      </p>
+    </div>
+
+    <div class="mt-10 space-y-10">
+      {
+        guides.map((guide) => {
+          const relatedProduct = products.find(
+            (p) => p.slug === guide.data.relatedProductSlug
+          );
+          return (
+            <article class="grid grid-cols-1 items-center gap-8 rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-6 sm:p-8 lg:grid-cols-12">
+              <div class="lg:col-span-5">
+                <a
+                  href={`/guides/${guide.id}/`}
+                  class="block overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FFFFFF]"
+                >
+                  <img
+                    src={guide.data.coverImage}
+                    width={guide.data.coverWidth}
+                    height={guide.data.coverHeight}
+                    alt={guide.data.coverAlt}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-auto w-full object-cover"
+                  />
+                </a>
+              </div>
+              <div class="lg:col-span-7 prose-measure">
+                <p class="font-bold text-[#444444]">
+                  {guide.data.readingTime}
+                </p>
+                <h2 class="mt-2 font-serif text-[#015A67]">
+                  <a
+                    href={`/guides/${guide.id}/`}
+                    class="text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+                  >
+                    {guide.data.title}
+                  </a>
+                </h2>
+                <p class="mt-3 text-[#111111]">
+                  {guide.data.description}
+                </p>
+                <div class="mt-5 flex flex-wrap items-center gap-6">
+                  <a href={`/guides/${guide.id}/`} class="btn btn-primary">
+                    Read guide
+                  </a>
+                  {relatedProduct && (
+                    <span class="text-[#444444]">
+                      Related printable:{" "}
+                      <a href={`/shop/${relatedProduct.slug}/`}>
+                        {relatedProduct.title}
+                      </a>
+                    </span>
+                  )}
+                </div>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>

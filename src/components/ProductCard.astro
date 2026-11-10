@@ -1,0 +1,61 @@
+---
+import type { Product } from "../data/products";
+
+interface Props {
+  product: Product;
+  headingLevel?: "h2" | "h3";
+}
+
+const { product, headingLevel = "h3" } = Astro.props;
+const HeadingTag = headingLevel;
+---
+<article class="flex flex-col justify-between rounded-xl border-2 border-[#D8D5C5] bg-[#FFFFFF] p-6">
+  <div>
+    <a href={`/shop/${product.slug}/`} class="block overflow-hidden rounded-xl border border-[#D8D5C5] bg-[#FAF8EC]">
+      <img
+        src={product.image}
+        width={product.imageWidth}
+        height={product.imageHeight}
+        alt={product.imageAlt}
+        loading="lazy"
+        decoding="async"
+        class="h-auto w-full object-cover"
+      />
+    </a>
+
+    <div class="mt-5 flex flex-wrap items-center justify-between gap-2">
+      <span class="rounded-lg bg-[#FAF8EC] px-3 py-1 font-bold text-[#444444]">
+        {product.pages} pages &middot; US Letter PDF
+      </span>
+      <span class="font-serif text-[1.35rem] font-bold text-[#111111]">
+        {product.price}
+      </span>
+    </div>
+
+    <HeadingTag class="mt-3 font-serif text-[1.5rem] font-semibold text-[#015A67]">
+      <a href={`/shop/${product.slug}/`} class="text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]">
+        {product.title}
+      </a>
+    </HeadingTag>
+
+    <p class="mt-3 text-[#111111]">
+      {product.short}
+    </p>
+  </div>
+
+  <div class="mt-6 flex flex-col gap-3 pt-4 sm:flex-row sm:items-center">
+    <a
+      href={`/shop/${product.slug}/`}
+      class="btn btn-secondary flex-1 text-center"
+    >
+      See what is inside
+    </a>
+    <a
+      href={product.gumroadUrl}
+      class="btn btn-cta flex-1 text-center"
+      rel="noopener noreferrer"
+    >
+      Buy on Gumroad ({product.price})
+    </a>
+  </div>
+</article>

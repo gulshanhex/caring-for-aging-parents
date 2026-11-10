@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers / Pages configuration
+  "name": "caring-for-aging-parents",
+  "compatibility_date": "2026-11-10",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { products } from "../../data/products";
+
+export async function getStaticPaths() {
+  const guides = await getCollection("guides");
+  return guides.map((guide) => ({
+    params: { slug: guide.id },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+
+const relatedProduct = products.find(
+  (p) => p.slug === guide.data.relatedProductSlug
+);
+
+// Keep <title> <= 60 chars while following pattern "Page | Caring for Aging Parents"
+const shortTitleMap: Record<string, string> = {
+  "how-to-print-large-print-sheets": "Printing Large-Print Sheets | Caring for Aging Parents",
+  "sibling-care-handover-routine": "Sibling Care Handover Routine | Caring for Aging Parents",
+  "where-things-are-without-passwords": "Where Things Are Guide | Caring for Aging Parents",
+};
+
+const seoTitle =
+  shortTitleMap[guide.id] || `${guide.data.title.slice(0, 28)} | Caring for Aging Parents`;
+const pagePath = `/guides/${guide.id}/`;
+---
+<BaseLayout
+  title={seoTitle}
+  description={guide.data.description}
+  canonicalPath={pagePath}
+  ogImage={guide.data.coverImage}
+  breadcrumbs={[
+    { label: "Guides", href: "/guides/" },
+    { label: guide.data.title, href: pagePath },
+  ]}
+>
+  <article class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <!-- Anthropic/Medium inspired calm long-form article header -->
+    <div class="prose-measure">
+      <p class="font-bold text-[#444444]">
+        Practical Organization Guide &middot; {guide.data.readingTime}
+      </p>
+      <h1 class="mt-2 font-serif text-[#015A67]">
+        {guide.data.title}
+      </h1>
+      <p class="mt-4 text-[#444444]">
+        {guide.data.description}
+      </p>
+    </div>
+
+    <div class="my-8 max-w-4xl overflow-hidden rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC]">
+      <img
+        src={guide.data.coverImage}
+        width={guide.data.coverWidth}
+        height={guide.data.coverHeight}
+        alt={guide.data.coverAlt}
+        loading="lazy"
+        decoding="async"
+        class="h-auto w-full object-cover"
+      />
+    </div>
+
+    <div class="prose-content prose-measure border-t border-[#D8D5C5] pt-8">
+      <Content />
+    </div>
+
+    {
+      relatedProduct && (
+        <aside
+          aria-label="Related printable sheet"
+          class="prose-measure mt-12 rounded-xl border-2 border-[#015A67] bg-[#FAF8EC] p-6 sm:p-8"
+        >
+          <p class="font-bold text-[#444444]">
+            Related Printable PDF
+          </p>
+          <h2 class="mt-2 font-serif text-[#015A67]">
+            {relatedProduct.title}
+          </h2>
+          <p class="mt-3 text-[#111111]">
+            {relatedProduct.short}
+          </p>
+          <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a href={`/shop/${relatedProduct.slug}/`} class="btn btn-primary text-center">
+              See the {relatedProduct.title}
+            </a>
+            <a
+              href={relatedProduct.gumroadUrl}
+              class="btn btn-cta text-center"
+              rel="noopener noreferrer"
+            >
+              Buy on Gumroad ({relatedProduct.price})
+            </a>
+          </div>
+        </aside>
+      )
+    }
+  </article>
+</BaseLayout>

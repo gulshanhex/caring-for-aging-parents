@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/site";
+
+const faqs = [
+  {
+    q: "1. What exactly do I receive when I buy a printable?",
+    a: "You receive a digital PDF file formatted for standard US Letter paper (8.5 by 11 inches). No physical binder or paper is mailed to your house. You download the PDF file right after checkout and print the pages at home or at a local print shop.",
+  },
+  {
+    q: "2. Why are these designed to be filled in by hand instead of typed on a computer?",
+    a: "In real family caregiving, updates happen at the kitchen counter while you are putting away groceries or heading out the door. Writing a two-minute note by hand with a pen is faster than opening a laptop, and it lets your parent and visiting siblings read the sheet immediately without needing a phone or password.",
+  },
+  {
+    q: "3. Are these sheets really large enough for my parent to read?",
+    a: "Yes. We design every sheet specifically for eyes aged 70 and up, with bold headings, high-contrast black lines on white paper, and tall writing boxes. You can download our free sample page first and try the 30-second arm's-length test in your parent's kitchen before buying.",
+  },
+  {
+    q: "4. How many times can I print a PDF after I buy it?",
+    a: "You can print the pages as many times as your own immediate family needs. When a weekly handover sheet fills up, or when a phone number changes, simply print a fresh page.",
+  },
+  {
+    q: "5. Do I need a color printer?",
+    a: "No. Every printable pack is designed to print cleanly in standard black and white (grayscale) on any home inkjet or laser printer.",
+  },
+  {
+    q: "6. Can I print these on A4 paper if I live outside North America?",
+    a: "Yes. While the pages are sized for US Letter paper (8.5 by 11 inches), they print cleanly on A4 paper when you choose 'Fit to Printable Area' in your printer settings.",
+  },
+  {
+    q: "7. How do payments and file delivery work?",
+    a: "We do not collect credit card numbers on this website. When you click any Buy button, you are taken to our product page on Gumroad, which handles payment processing and instant PDF file delivery securely.",
+  },
+  {
+    q: "8. What are the refund terms?",
+    a: "Refund terms are shown on the Gumroad product page before you complete your purchase. If you have any trouble downloading or opening your PDF file, you can also email us and we will help you right away.",
+  },
+  {
+    q: "9. Is it safe to write down household information on paper?",
+    a: "Yes, as long as you follow the pointer rule: write down only physical locations in the house (such as which drawer holds a folder or where spare keys are kept) and company names. Never write passwords, PINs, Social Security numbers, or account numbers on your printed sheets.",
+  },
+  {
+    q: "10. Do your sheets include medical, legal, or financial advice?",
+    a: "No. Our sheets are strictly plain-English organizational tools for everyday family logistics, contact lists, and household routines. They do not provide medical, legal, or financial advice. Please speak to a qualified professional for those matters.",
+  },
+];
+---
+<BaseLayout
+  title="Frequently Asked Questions | Caring for Aging Parents"
+  description="Plain answers about downloading, printing, and using our large-print family caregiving PDF sheets, plus Gumroad checkout details."
+  canonicalPath="/faq/"
+  breadcrumbs={[{ label: "FAQ", href: "/faq/" }]}
+>
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="prose-measure">
+      <h1 class="font-serif text-[#015A67]">
+        Frequently asked questions
+      </h1>
+      <p class="mt-4 text-[#111111]">
+        Everything you need to know about how our printable PDFs work, how to print them at home, and how Gumroad delivers your files.
+      </p>
+
+      <div class="mt-10 space-y-4">
+        {
+          faqs.map((item) => (
+            <details class="rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-5">
+              <summary class="font-bold text-[#015A67]">
+                <span>{item.q}</span>
+                <span aria-hidden="true" class="ml-4 text-[1.25rem] font-bold text-[#015A67]">+</span>
+              </summary>
+              <p class="mt-4 border-t border-[#D8D5C5] pt-4 text-[#111111]">
+                {item.a}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 rounded-xl border-2 border-[#D8D5C5] bg-[#FFFFFF] p-6">
+        <h2 class="font-serif text-[#015A67]">
+          Still have a question?
+        </h2>
+        <p class="mt-3 text-[#111111]">
+          Send us a note on our <a href="/contact/">Contact page</a> or email us directly at <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

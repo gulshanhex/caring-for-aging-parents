@@ -1,0 +1,14 @@
+---
+import { siteConfig } from "../data/site";
+const { enableCloudflareAnalytics, cloudflareBeaconToken } = siteConfig.analytics;
+---
+{
+  enableCloudflareAnalytics && cloudflareBeaconToken && (
+    <script
+      defer
+       is:inline
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={JSON.stringify({ token: cloudflareBeaconToken })}
+    />
+  )
+}
