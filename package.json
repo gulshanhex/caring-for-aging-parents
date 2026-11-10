@@ -5,7 +5,6 @@
   "private": true,
   "description": "Large-print, fill-in-by-hand printable PDF sheets that help adult children and families stay organized while caring for an aging parent.",
   "scripts": {
-    "prebuild": "node ./scripts/ensure-deps.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
