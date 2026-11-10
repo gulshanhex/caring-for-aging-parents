@@ -29,24 +29,24 @@ const breadcrumbJsonLd = {
 {
   items.length > 0 && (
     <nav aria-label="Breadcrumb" class="no-print mb-6">
-      <ol class="flex flex-wrap items-center gap-2 text-[#444444]">
+      <ol class="breadcrumb-list flex flex-wrap items-center gap-2 text-muted">
         {allItems.map((item, index) => {
           const isLast = index === allItems.length - 1;
           return (
             <li class="flex items-center gap-2">
               {isLast ? (
-                <span aria-current="page" class="font-bold text-[#111111]">
+                <span aria-current="page" class="font-bold text-ink">
                   {item.label}
                 </span>
               ) : (
                 <>
                   <a
                     href={item.href}
-                    class="inline-flex min-h-[48px] items-center text-[#015A67] underline decoration-2 underline-offset-4 hover:text-[#014651]"
+                    class="inline-flex min-h-12 items-center text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
                   >
                     {item.label}
                   </a>
-                  <span aria-hidden="true" class="text-[#444444]">/</span>
+                  <span aria-hidden="true" class="text-muted">/</span>
                 </>
               )}
             </li>

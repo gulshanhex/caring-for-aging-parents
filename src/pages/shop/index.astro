@@ -11,25 +11,25 @@ import { siteConfig } from "../../data/site";
   breadcrumbs={[{ label: "Shop", href: "/shop/" }]}
 >
   <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-    <div class="max-w-[65ch]">
-      <h1 class="font-serif text-[#015A67]">
+    <div class="prose-measure">
+      <h1 class="font-serif text-teal">
         Printable organizational sheets
       </h1>
-      <p class="mt-4 text-[#111111]">
+      <p class="mt-4 text-ink">
         Every pack is a high-contrast, large-print PDF formatted for standard US Letter paper (8.5 by 11 inches). Download once via Gumroad, print in black and white on your home printer, and fill in by hand with an everyday pen.
       </p>
     </div>
 
-    <div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+    <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
       {products.map((product) => <ProductCard product={product} headingLevel="h2" />)}
     </div>
 
-    <div class="mt-14 rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-6 sm:p-8">
-      <div class="max-w-[65ch]">
-        <h2 class="font-serif text-[#015A67]">
+    <div class="mt-14 rounded-xl border-2 border-warm-border bg-cream p-6 sm:p-8">
+      <div class="prose-measure">
+        <h2 class="font-serif text-teal">
           Want to test the print size before buying?
         </h2>
-        <p class="mt-3 text-[#111111]">
+        <p class="mt-3 text-ink">
           You can download our free one-page sample sheet first to see how the large type and wide handwriting boxes look coming out of your own printer.
         </p>
         <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">

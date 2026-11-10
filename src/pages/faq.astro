@@ -53,22 +53,22 @@ const faqs = [
 >
   <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
     <div class="prose-measure">
-      <h1 class="font-serif text-[#015A67]">
+      <h1 class="font-serif text-teal">
         Frequently asked questions
       </h1>
-      <p class="mt-4 text-[#111111]">
+      <p class="mt-4 text-ink">
         Everything you need to know about how our printable PDFs work, how to print them at home, and how Gumroad delivers your files.
       </p>
 
       <div class="mt-10 space-y-4">
         {
           faqs.map((item) => (
-            <details class="rounded-xl border-2 border-[#D8D5C5] bg-[#FAF8EC] p-5">
-              <summary class="font-bold text-[#015A67]">
+            <details class="rounded-xl border-2 border-warm-border bg-cream p-5">
+              <summary class="font-bold text-teal">
                 <span>{item.q}</span>
-                <span aria-hidden="true" class="ml-4 text-[1.25rem] font-bold text-[#015A67]">+</span>
+                <span aria-hidden="true" class="ml-4 text-lg font-bold text-teal">+</span>
               </summary>
-              <p class="mt-4 border-t border-[#D8D5C5] pt-4 text-[#111111]">
+              <p class="mt-4 border-t border-warm-border pt-4 text-ink">
                 {item.a}
               </p>
             </details>
@@ -76,11 +76,11 @@ const faqs = [
         }
       </div>
 
-      <div class="mt-12 rounded-xl border-2 border-[#D8D5C5] bg-[#FFFFFF] p-6">
-        <h2 class="font-serif text-[#015A67]">
+      <div class="mt-12 rounded-xl border-2 border-warm-border bg-canvas p-6">
+        <h2 class="font-serif text-teal">
           Still have a question?
         </h2>
-        <p class="mt-3 text-[#111111]">
+        <p class="mt-3 text-ink">
           Send us a note on our <a href="/contact/">Contact page</a> or email us directly at <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.
         </p>
       </div>
