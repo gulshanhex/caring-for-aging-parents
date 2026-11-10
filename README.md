@@ -31,6 +31,12 @@ npm run check
 npm run build
 ```
 
+### Regenerate Per-Page Social Preview Images
+```bash
+npm run generate:og
+```
+This creates one branded `1200x630` JPEG in `public/og/pages/` for each indexable route. The shared layout selects the matching card from the page's canonical path.
+
 ### Preview Production Build Locally
 ```bash
 npm run preview

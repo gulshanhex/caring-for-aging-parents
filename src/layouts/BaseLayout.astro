@@ -27,14 +27,18 @@ const {
   title,
   description,
   canonicalPath = Astro.url.pathname,
-  ogImage = "/og/og-1200x630.jpg",
+  ogImage,
   breadcrumbs = [],
   productJsonLd = null,
   faqJsonLd = null,
 } = Astro.props;
 
+const defaultOgImage =
+  canonicalPath === "/404.html"
+    ? "/og/og-1200x630.jpg"
+    : `/og/pages/${canonicalPath === "/" ? "home" : canonicalPath.replace(/^\//, "").replace(/\/$/, "").replaceAll("/", "-")}.jpg`;
 const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
-const absoluteOgImage = new URL(ogImage, siteConfig.url).toString();
+const absoluteOgImage = new URL(ogImage ?? defaultOgImage, siteConfig.url).toString();
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
