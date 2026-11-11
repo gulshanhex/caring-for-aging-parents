@@ -381,6 +381,70 @@ details:focus-visible,
   color: #015A67;
 }
 
+/* Shared visual language for every in-page warning or limitation notice. */
+.notice-box {
+  margin-top: 1rem;
+  padding: 1.15rem 1.25rem;
+  border: 3px solid #52332A;
+  border-left-width: 10px;
+  border-radius: 0.85rem;
+  background: #FFF4D6;
+  color: #111111;
+  box-shadow: 0 4px 0 rgba(82, 51, 42, 0.1);
+}
+
+.notice-box-info {
+  border-color: #015A67;
+  background: #E8F4F2;
+}
+
+.notice-box-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #52332A;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.notice-box-info .notice-box-heading {
+  color: #015A67;
+}
+
+.notice-box-heading p {
+  font-weight: 700;
+}
+
+.notice-box-icon {
+  display: inline-flex;
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #52332A;
+  color: #FFF4D6;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.notice-box-info .notice-box-icon {
+  background: #015A67;
+  color: #E8F4F2;
+}
+
+.notice-box-content {
+  margin-top: 0.7rem;
+  color: #111111;
+}
+
+.notice-box-content a {
+  color: #015A67;
+}
+
 /* Native <details> styling for FAQ and mobile menu */
 details > summary {
   list-style: none;
@@ -716,7 +780,26 @@ details > summary::-webkit-details-marker {
 
   .form-hint {
     margin-top: 0.4rem;
+    padding: 0.6rem 0.75rem;
+    border-left: 5px solid #52332A;
+    border-radius: 0.35rem;
+    background: #FFF4D6;
     color: #444444;
+  }
+
+  .form-hint::before {
+    content: "!";
+    display: inline-flex;
+    width: 1.35rem;
+    height: 1.35rem;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.45rem;
+    border-radius: 9999px;
+    background: #52332A;
+    color: #FFF4D6;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .form-input {

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../data/site";
+import NoticeBox from "../components/NoticeBox.astro";
 ---
 <BaseLayout
   title="Terms of Use | Caring for Aging Parents"
@@ -54,9 +55,9 @@ import { siteConfig } from "../data/site";
         <h2 class="font-serif text-teal">
           4. Organizational tools only
         </h2>
-        <p class="mt-3 text-ink">
+        <NoticeBox title="Important limitation">
           Our sheets are organizational tools. They are not medical, legal, or financial advice. Please read our <a href="/disclaimer/">disclaimer</a>.
-        </p>
+        </NoticeBox>
       </section>
 
       <section>

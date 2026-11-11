@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  variant?: "warning" | "info";
+}
+
+const { title, variant = "warning" } = Astro.props;
+const icon = variant === "info" ? "i" : "!";
+---
+<aside class:list={["notice-box", `notice-box-${variant}`]} role="note">
+  <div class="notice-box-heading">
+    <span class="notice-box-icon" aria-hidden="true">{icon}</span>
+    <p>{title}</p>
+  </div>
+  <div class="notice-box-content">
+    <slot />
+  </div>
+</aside>
