@@ -587,6 +587,35 @@ html.initial-loading .page-content {
   padding: 0.55rem 0.8rem;
 }
 
+/* Product cards: one column on phones, two balanced columns on tablet portrait,
+   and three columns on tablet landscape/desktop. */
+.product-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* With an odd number of products, center the final card in row two. */
+  .product-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 1rem);
+    justify-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* Clear, high-contrast warning treatment used for the site's organizational disclaimer. */
 .footer-disclaimer {
   border: 3px solid #52332A;
