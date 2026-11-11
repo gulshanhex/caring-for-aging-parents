@@ -135,6 +135,19 @@ const webpageJsonLd = {
     <MetaPixel />
   </head>
   <body class="flex min-h-screen flex-col bg-canvas text-ink">
+    <div id="site-loading" class="site-loading" hidden aria-live="polite" aria-busy="true">
+      <div class="site-loading-bar" aria-hidden="true"></div>
+      <div class="site-loading-card" role="status">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="site-loading-title">Loading page</p>
+        <p class="site-loading-subtitle">Just a moment…</p>
+        <div class="loading-skeleton-block" aria-hidden="true">
+          <span class="skeleton-line skeleton-line-wide"></span>
+          <span class="skeleton-line skeleton-line-medium"></span>
+          <span class="skeleton-line skeleton-line-short"></span>
+        </div>
+      </div>
+    </div>
     <a href="#main-content" class="skip-link">
       Skip to main content
     </a>
@@ -160,6 +173,62 @@ const webpageJsonLd = {
 </html>
 
 <script>
+  const loadingOverlay = document.getElementById("site-loading");
+
+  function showPageLoading(label = "Loading page") {
+    if (!loadingOverlay) return;
+    const title = loadingOverlay.querySelector<HTMLElement>(".site-loading-title");
+    if (title) title.textContent = label;
+    loadingOverlay.hidden = false;
+    document.documentElement.classList.add("is-loading");
+  }
+
+  function hidePageLoading() {
+    if (!loadingOverlay) return;
+    loadingOverlay.hidden = true;
+    document.documentElement.classList.remove("is-loading");
+  }
+
+  window.addEventListener("pageshow", hidePageLoading);
+
+  document.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        link.target === "_blank" ||
+        link.hasAttribute("download")
+      ) return;
+
+      const href = link.getAttribute("href") || "";
+      if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+
+      try {
+        const destination = new URL(href, window.location.href);
+        if (destination.origin !== window.location.origin) return;
+        showPageLoading("Loading page");
+      } catch {
+        return;
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>("a.btn[href]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (button.dataset.loadingReady === "true") return;
+      button.dataset.loadingReady = "true";
+      button.setAttribute("aria-busy", "true");
+      button.classList.add("is-loading-button");
+      const original = button.innerHTML;
+      button.dataset.originalLabel = original;
+      button.innerHTML = '<span class="button-spinner" aria-hidden="true"></span><span>Opening…</span>';
+    });
+  });
+
   const shareButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-url]");
 
   shareButtons.forEach((button) => {

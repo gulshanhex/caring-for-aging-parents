@@ -298,6 +298,128 @@ details:focus-visible,
   border-color: #014651;
 }
 
+/* Lightweight navigation feedback: appears only while a user is waiting for a new page. */
+.site-loading[hidden] {
+  display: none;
+}
+
+.site-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.site-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 5px;
+  background: #9E4A25;
+  box-shadow: 0 1px 8px rgba(158, 74, 37, 0.35);
+  animation: loading-progress 1.2s ease-in-out infinite;
+}
+
+.site-loading-card {
+  width: min(100%, 23rem);
+  padding: 1.5rem;
+  border: 2px solid #D8D5C5;
+  border-radius: 1rem;
+  background: #FFFFFF;
+  box-shadow: 0 18px 48px rgba(17, 17, 17, 0.16);
+  text-align: center;
+}
+
+.loading-spinner,
+.button-spinner {
+  display: inline-block;
+  border: 3px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 9999px;
+  animation: loading-spin 0.75s linear infinite;
+}
+
+.loading-spinner {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #015A67;
+}
+
+.site-loading-title {
+  margin-top: 0.85rem;
+  color: #015A67;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.site-loading-subtitle {
+  margin-top: 0.2rem;
+  color: #444444;
+}
+
+.loading-skeleton-block {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.2rem;
+  padding: 0.9rem;
+  border-radius: 0.65rem;
+  background: #FAF8EC;
+}
+
+.skeleton-line {
+  display: block;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #E9E6D8 25%, #FFFFFF 50%, #E9E6D8 75%);
+  background-size: 220% 100%;
+  animation: skeleton-shimmer 1.25s ease-in-out infinite;
+}
+
+.skeleton-line-wide { width: 92%; }
+.skeleton-line-medium { width: 72%; }
+.skeleton-line-short { width: 48%; }
+
+.button-spinner {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-width: 2px;
+}
+
+.is-loading-button {
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes loading-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loading-progress {
+  0% { transform: translateX(-120%); }
+  50% { transform: translateX(115%); }
+  100% { transform: translateX(285%); }
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 180% 0; }
+  100% { background-position: -40% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner,
+  .button-spinner,
+  .site-loading-bar,
+  .skeleton-line {
+    animation: none;
+  }
+}
+
 /* Progressive-enhancement share control: native share sheet first, copy-link fallback second. */
 .share-button {
   display: inline-flex;
