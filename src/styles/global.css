@@ -602,17 +602,72 @@ html.initial-loading .page-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* With an odd number of products, center the final card in row two. */
+  /* With an odd number of products, center a wide final card in row two. */
   .product-grid > :last-child:nth-child(odd) {
     grid-column: 1 / -1;
-    width: calc(50% - 1rem);
+    width: 100%;
+    max-width: 46rem;
     justify-self: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-main {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-image {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-copy > .mt-5 {
+    margin-top: 0;
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-actions > a {
+    width: 100%;
   }
 }
 
 @media (min-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 640px) and (max-width: 760px) {
+  /* Give the copy room on narrower tablet portrait screens. */
+  .product-grid > :last-child:nth-child(odd) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .product-grid > :last-child:nth-child(odd) .product-card-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .product-card-actions {
+    gap: 0.65rem;
   }
 }
 
