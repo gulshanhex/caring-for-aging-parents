@@ -153,6 +153,9 @@ const webpageJsonLd = {
     <!-- Disabled-by-default Analytics Components -->
     <CloudflareAnalytics />
     <MetaPixel />
+    <script is:inline>
+      document.documentElement.classList.add("initial-loading");
+    </script>
   </head>
   <body class="flex min-h-screen flex-col bg-canvas text-ink">
     <div id="site-loading" class="site-loading" hidden aria-live="polite" aria-busy="true">
@@ -161,26 +164,6 @@ const webpageJsonLd = {
         <div class="loading-spinner" aria-hidden="true"></div>
         <p class="site-loading-title">Loading page</p>
         <p class="site-loading-subtitle">Just a moment…</p>
-        <div class:list={["page-skeleton", `page-skeleton-${pageKind}`]} aria-hidden="true">
-          {
-            pageKind === "home" ? (
-              <>
-                <div class="skeleton-hero-copy"><span></span><span></span><span></span><span class="short"></span></div>
-                <div class="skeleton-hero-image"></div>
-              </>
-            ) : pageKind === "shop" ? (
-              <div class="skeleton-card-grid">{[1, 2, 3].map(() => <div class="skeleton-product-card"><span class="skeleton-card-image"></span><span></span><span></span><span class="short"></span><i></i><i></i></div>)}</div>
-            ) : pageKind === "product" ? (
-              <div class="skeleton-product-detail"><span class="skeleton-detail-image"></span><div><span></span><span></span><span></span><span class="short"></span><i></i></div></div>
-            ) : pageKind === "contact" ? (
-              <div class="skeleton-form"><span></span><i></i><span></span><i class="tall"></i><i></i></div>
-            ) : pageKind === "faq" ? (
-              <div class="skeleton-faq">{[1, 2, 3, 4].map(() => <span></span>)}</div>
-            ) : (
-              <div class="skeleton-article"><span></span><span></span><span></span><span class="wide"></span><span></span><span class="short"></span></div>
-            )
-          }
-        </div>
       </div>
     </div>
     <a href="#main-content" class="skip-link">
@@ -191,6 +174,27 @@ const webpageJsonLd = {
     <MobileBottomNav currentPath={canonicalPath} />
 
     <main id="main-content" tabindex="-1" class="flex-1">
+      <div class:list={["inline-page-skeleton", `page-skeleton-${pageKind}`]} aria-hidden="true">
+        {
+          pageKind === "home" ? (
+            <>
+              <div class="skeleton-hero-copy"><span></span><span></span><span></span><span class="short"></span></div>
+              <div class="skeleton-hero-image"></div>
+            </>
+          ) : pageKind === "shop" ? (
+            <div class="skeleton-card-grid">{[1, 2, 3].map(() => <div class="skeleton-product-card"><span class="skeleton-card-image"></span><span></span><span></span><span class="short"></span><i></i><i></i></div>)}</div>
+          ) : pageKind === "product" ? (
+            <div class="skeleton-product-detail"><span class="skeleton-detail-image"></span><div><span></span><span></span><span></span><span class="short"></span><i></i></div></div>
+          ) : pageKind === "contact" ? (
+            <div class="skeleton-form"><span></span><i></i><span></span><i class="tall"></i><i></i></div>
+          ) : pageKind === "faq" ? (
+            <div class="skeleton-faq">{[1, 2, 3, 4].map(() => <span></span>)}</div>
+          ) : (
+            <div class="skeleton-article"><span></span><span></span><span></span><span class="wide"></span><span></span><span class="short"></span></div>
+          )
+        }
+      </div>
+      <div class="page-content">
       {
         breadcrumbs.length > 0 ? (
           <div class="mx-auto max-w-6xl px-4 pt-6 sm:px-6 lg:px-8">
@@ -201,6 +205,7 @@ const webpageJsonLd = {
         )
       }
       <slot />
+      </div>
     </main>
 
     <Footer />
@@ -208,6 +213,10 @@ const webpageJsonLd = {
 </html>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => document.documentElement.classList.remove("initial-loading"));
+  }, { once: true });
+
   const loadingOverlay = document.getElementById("site-loading");
 
   function showPageLoading(label = "Loading page") {
