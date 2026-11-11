@@ -83,20 +83,27 @@ const liveSocial = siteConfig.social.filter((item) => item.live);
               </li>
             ))
           }
-          {
-            liveSocial.map((item) => (
-              <li>
-                <a
-                  href={item.url}
-                  rel="noopener noreferrer"
-                  class="inline-flex min-h-12 items-center py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))
-          }
         </ul>
+        {
+          liveSocial.length > 0 && (
+            <div class="mt-6">
+              <h2 class="font-serif text-xl font-bold text-teal">Follow us</h2>
+              <ul class="nav-list mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                {liveSocial.map((item) => (
+                  <li>
+                    <a
+                      href={item.url}
+                      rel="noopener noreferrer"
+                      class="inline-flex min-h-12 items-center py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
       </nav>
     </div>
 

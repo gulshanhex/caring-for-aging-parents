@@ -31,15 +31,12 @@ export const siteConfig: SiteConfig = {
   contactEmail: "hello@caringforagingparents.page",
   gumroadStoreUrl: "https://caringforagingparents.gumroad.com",
   freeSampleUrl: "https://caringforagingparents.gumroad.com/l/free-sample-handover-page",
-  // Handle: @caringforagingparentsofficial. Set `live: true` once each account exists.
-  // NOTE: X usernames are limited to 15 characters and Reddit usernames to 20, so the full
-  // handle (29 characters) cannot be registered there. Update the X and Reddit URLs below
-  // after you pick a shorter handle for them.
+  // Social profiles supplied for the footer.
   social: [
-    { name: "Facebook", url: "https://www.facebook.com/caringforagingparentsofficial", live: false },
-    { name: "Pinterest", url: "https://www.pinterest.com/caringforagingparentsofficial/", live: false },
-    { name: "X", url: "https://x.com/caringforagingparentsofficial", live: false },
-    { name: "Reddit", url: "https://www.reddit.com/user/caringforagingparentsofficial", live: false },
+    { name: "Facebook", url: "https://www.facebook.com/caringforagingparentsofficial", live: true },
+    { name: "Pinterest", url: "https://www.pinterest.com/caringforagingparentsofficial/", live: true },
+    { name: "X", url: "https://x.com/caringforagingparentsofficial", live: true },
+    { name: "Reddit", url: "https://www.reddit.com/user/caringforagingparentsofficial", live: true },
   ],
   analytics: {
     enableCloudflareAnalytics: false,
