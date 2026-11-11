@@ -373,6 +373,10 @@ details:focus-visible,
   font-weight: 700;
 }
 
+.footer-disclaimer-text .notice-highlight {
+  display: inline;
+}
+
 .footer-disclaimer-link {
   color: #333333;
 }
@@ -439,6 +443,19 @@ details:focus-visible,
 .notice-box-content {
   margin-top: 0.7rem;
   color: #111111;
+}
+
+.notice-highlight {
+  padding: 0.08em 0.28em;
+  border-radius: 0.25rem;
+  background: #FFE38A;
+  color: #111111;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .notice-box-content a {
