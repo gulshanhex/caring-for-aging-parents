@@ -6,14 +6,18 @@ const liveSocial = siteConfig.social.filter((item) => item.live);
 <footer class="mt-16 border-t-2 border-warm-border bg-cream text-ink">
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
     <!-- Mandatory non-negotiable organizational disclaimer banner -->
-    <div class="mb-10 rounded-xl border-2 border-brown bg-canvas p-6">
-      <p class="max-w-prose font-bold text-ink">
+    <aside class="footer-disclaimer mb-10" aria-label="Important disclaimer">
+      <div class="footer-disclaimer-heading">
+        <span class="footer-disclaimer-icon" aria-hidden="true">!</span>
+        <p>Important disclaimer</p>
+      </div>
+      <p class="footer-disclaimer-text max-w-prose">
         {siteConfig.disclaimerText}
       </p>
-      <p class="mt-2 max-w-prose text-muted">
+      <p class="footer-disclaimer-link mt-3 max-w-prose">
         Read our full <a href="/disclaimer/">Organizational Tools Disclaimer</a> for details on how these printable sheets are intended to be used.
       </p>
-    </div>
+    </aside>
 
     <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
       <!-- Column 1: Brand & payment note -->

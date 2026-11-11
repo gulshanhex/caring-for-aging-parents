@@ -14,8 +14,12 @@ import { siteConfig } from "../data/site";
         Organizational tools disclaimer
       </h1>
 
-      <div class="rounded-xl border-2 border-brown bg-cream p-6">
-        <p class="font-bold text-ink">
+      <div class="footer-disclaimer" role="note" aria-label="Important disclaimer">
+        <div class="footer-disclaimer-heading">
+          <span class="footer-disclaimer-icon" aria-hidden="true">!</span>
+          <p>Important disclaimer</p>
+        </div>
+        <p class="footer-disclaimer-text">
           {siteConfig.disclaimerText}
         </p>
       </div>

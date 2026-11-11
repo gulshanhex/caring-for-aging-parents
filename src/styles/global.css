@@ -329,6 +329,58 @@ details:focus-visible,
   padding: 0.55rem 0.8rem;
 }
 
+/* Clear, high-contrast warning treatment used for the site's organizational disclaimer. */
+.footer-disclaimer {
+  border: 3px solid #52332A;
+  border-left-width: 10px;
+  border-radius: 0.85rem;
+  padding: 1.25rem 1.35rem;
+  background: #FFF4D6;
+  color: #111111;
+  box-shadow: 0 5px 0 rgba(82, 51, 42, 0.12);
+}
+
+.footer-disclaimer-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #52332A;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-disclaimer-heading p {
+  font-weight: 700;
+}
+
+.footer-disclaimer-icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #52332A;
+  color: #FFF4D6;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-disclaimer-text {
+  margin-top: 0.8rem;
+  font-weight: 700;
+}
+
+.footer-disclaimer-link {
+  color: #333333;
+}
+
+.footer-disclaimer-link a {
+  color: #015A67;
+}
+
 /* Native <details> styling for FAQ and mobile menu */
 details > summary {
   list-style: none;
