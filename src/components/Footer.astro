@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "../data/site";
-const currentYear = 2026;
+const currentYear = new Date().getFullYear();
+const liveSocial = siteConfig.social.filter((item) => item.live);
 ---
 <footer class="mt-16 border-t-2 border-warm-border bg-cream text-ink">
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
@@ -22,7 +23,7 @@ const currentYear = 2026;
             src="/images/brand/logo-1024.webp"
             width="48"
             height="48"
-            alt="Caring for Aging Parents logo"
+            alt=""
             loading="lazy"
             decoding="async"
             class="h-12 w-12 shrink-0 rounded-full border border-warm-border bg-canvas object-contain p-1"
@@ -78,24 +79,19 @@ const currentYear = 2026;
               </li>
             ))
           }
-          <li>
-            <a
-              href={siteConfig.social.pinterestUrl}
-              rel="noopener noreferrer"
-              class="inline-flex min-h-12 items-center py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
-            >
-              Pinterest
-            </a>
-          </li>
-          <li>
-            <a
-              href={siteConfig.social.facebookUrl}
-              rel="noopener noreferrer"
-              class="inline-flex min-h-12 items-center py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
-            >
-              Facebook
-            </a>
-          </li>
+          {
+            liveSocial.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  rel="noopener noreferrer"
+                  class="inline-flex min-h-12 items-center py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
     </div>

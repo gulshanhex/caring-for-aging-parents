@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "deploy:pages": "astro build && wrangler pages deploy ./dist --project-name=caring-for-aging-parents",
-    "deploy:workers": "astro build && wrangler deploy"
+    "deploy:workers": "astro build && wrangler deploy -c wrangler.workers.jsonc"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
@@ -24,6 +24,6 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "typescript": "^5.7.3",
-    "wrangler": "^3.109.0"
+    "wrangler": "^4.160.0"
   }
 }

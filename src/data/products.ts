@@ -44,7 +44,7 @@ export const products: Product[] = [
     printNotes: [
       "Prints cleanly in black and white on any home inkjet or laser printer.",
       "Designed for standard US Letter paper (8.5 x 11 inches) at 100% actual size.",
-      "Extra-wide writing boxes and dark lines make it comfortable for eyes aged 70 and up to read at arm's length.",
+      "Extra-wide writing boxes and dark lines are designed to be easy to read at arm's length.",
     ],
     pages: 8,
     format: "PDF, US Letter, prints in black & white",
@@ -107,7 +107,7 @@ export const products: Product[] = [
       "Spare keys and household access map (where spare house, car, mailbox, and shed keys are stored)",
       "File cabinet and folder pointer sheet (which room, drawer, or binder holds household records)",
       "Utilities and home services list (company name, service type, and how statements arrive—no account numbers)",
-      "Banking and institución pointer page (institution name and branch town only—explicitly no account numbers or PINs)",
+      "Banking and institution pointer page (institution name and branch town only—explicitly no account numbers or PINs)",
       "Home maintenance and appliance shut-off guide (where the main water valve, fuse box, and manuals are located)",
       "Safe-keeping checklist explaining how to store this binder in a private spot inside the home",
     ],

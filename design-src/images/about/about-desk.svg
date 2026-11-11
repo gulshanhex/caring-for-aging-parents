@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <rect width="1200" height="800" fill="#FAF8EC"/>
+  <path d="M-80 120 C 220 -40, 620 40, 740 310 C 860 580, 420 780, -80 680 Z" fill="#81977A" fill-opacity="0.18"/>
+  <circle cx="980" cy="210" r="180" fill="#B96038" fill-opacity="0.14"/>
+
+  <!-- Warm wood desk surface -->
+  <rect x="80" y="140" width="1040" height="540" rx="44" fill="#52332A"/>
+
+  <!-- Open notebook / binder on left-center -->
+  <g transform="translate(175, 200)">
+    <rect x="0" y="0" width="580" height="410" rx="22" fill="#015A67"/>
+    <rect x="24" y="22" width="254" height="366" rx="12" fill="#FFFFFF"/>
+    <rect x="302" y="22" width="254" height="366" rx="12" fill="#FFFFFF"/>
+    <!-- Bookmark ribbon -->
+    <path d="M286 22 L 298 22 L 298 415 L 292 402 L 286 415 Z" fill="#B96038"/>
+    <!-- Left page abstract lines -->
+    <rect x="52" y="56" width="150" height="20" rx="10" fill="#015A67"/>
+    <rect x="52" y="102" width="196" height="14" rx="7" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="52" y="132" width="180" height="14" rx="7" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="52" y="162" width="196" height="14" rx="7" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="52" y="212" width="196" height="130" rx="10" fill="#FAF8EC"/>
+    <rect x="70" y="236" width="140" height="14" rx="7" fill="#B96038" fill-opacity="0.7"/>
+    <rect x="70" y="266" width="160" height="12" rx="6" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="70" y="292" width="125" height="12" rx="6" fill="#81977A" fill-opacity="0.5"/>
+
+    <!-- Right page abstract lines -->
+    <rect x="330" y="56" width="165" height="20" rx="10" fill="#B96038"/>
+    <rect x="330" y="102" width="196" height="80" rx="10" fill="#FAF8EC"/>
+    <rect x="348" y="124" width="150" height="14" rx="7" fill="#015A67" fill-opacity="0.6"/>
+    <rect x="348" y="150" width="120" height="12" rx="6" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="330" y="204" width="196" height="14" rx="7" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="330" y="234" width="175" height="14" rx="7" fill="#81977A" fill-opacity="0.5"/>
+    <rect x="330" y="264" width="190" height="14" rx="7" fill="#81977A" fill-opacity="0.5"/>
+  </g>
+
+  <!-- Pen beside notebook -->
+  <g transform="translate(805, 290) rotate(12)">
+    <rect x="0" y="0" width="24" height="290" rx="12" fill="#B96038"/>
+    <rect x="0" y="38" width="24" height="20" fill="#FAF8EC"/>
+    <polygon points="0,278 24,278 12,316" fill="#E89B69"/>
+    <polygon points="7,302 17,302 12,316" fill="#015A67"/>
+  </g>
+
+  <!-- Cup of tea on saucer on right -->
+  <g transform="translate(895, 360)">
+    <circle cx="95" cy="95" r="88" fill="#81977A"/>
+    <circle cx="95" cy="95" r="64" fill="#FAF8EC"/>
+    <rect x="148" y="82" width="36" height="24" rx="12" fill="#FAF8EC"/>
+    <circle cx="95" cy="95" r="48" fill="#B96038" fill-opacity="0.8"/>
+    <circle cx="80" cy="80" r="14" fill="#FAF8EC" fill-opacity="0.25"/>
+  </g>
+</svg>

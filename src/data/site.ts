@@ -5,10 +5,8 @@ export interface SiteConfig {
   contactEmail: string;
   gumroadStoreUrl: string;
   freeSampleUrl: string;
-  social: {
-    facebookUrl: string;
-    pinterestUrl: string;
-  };
+  // Links are shown in the footer and in structured data only when `live` is true.
+  social: Array<{ name: string; url: string; live: boolean }>;
   analytics: {
     enableCloudflareAnalytics: boolean;
     cloudflareBeaconToken: string;
@@ -33,10 +31,16 @@ export const siteConfig: SiteConfig = {
   contactEmail: "hello@caringforagingparents.page",
   gumroadStoreUrl: "https://caringforagingparents.gumroad.com",
   freeSampleUrl: "https://caringforagingparents.gumroad.com/l/free-sample-handover-page",
-  social: {
-    facebookUrl: "https://www.facebook.com/caringforagingparents",
-    pinterestUrl: "https://www.pinterest.com/caringforagingparents",
-  },
+  // Handle: @caringforagingparentsofficial. Set `live: true` once each account exists.
+  // NOTE: X usernames are limited to 15 characters and Reddit usernames to 20, so the full
+  // handle (29 characters) cannot be registered there. Update the X and Reddit URLs below
+  // after you pick a shorter handle for them.
+  social: [
+    { name: "Facebook", url: "https://www.facebook.com/caringforagingparentsofficial", live: false },
+    { name: "Pinterest", url: "https://www.pinterest.com/caringforagingparentsofficial/", live: false },
+    { name: "X", url: "https://x.com/caringforagingparentsofficial", live: false },
+    { name: "Reddit", url: "https://www.reddit.com/user/caringforagingparentsofficial", live: false },
+  ],
   analytics: {
     enableCloudflareAnalytics: false,
     cloudflareBeaconToken: "00000000000000000000000000000000",
@@ -55,6 +59,7 @@ export const siteConfig: SiteConfig = {
   ],
   footerLinks: [
     { label: "Privacy", href: "/privacy/" },
+    { label: "Terms", href: "/terms/" },
     { label: "Disclaimer", href: "/disclaimer/" },
     { label: "Contact", href: "/contact/" },
     { label: "FAQ", href: "/faq/" },

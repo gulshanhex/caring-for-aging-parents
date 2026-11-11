@@ -49,7 +49,8 @@ npm run preview
 All Cloudflare configuration files are pre-configured and verified:
 - `public/.assetsignore` (copied to `dist/.assetsignore` with exactly two lines: `_worker.js` and `_routes.json`)
 - `public/_headers` (copied to `dist/_headers` with strict security headers and cache rules for `/_astro/*` [1 year immutable] and `/images/*` [1 day])
-- `wrangler.jsonc` (`name: "caring-for-aging-parents"`, `compatibility_date: "2026-11-10"`, `assets: { directory: "./dist", not_found_handling: "404-page" }`)
+- `wrangler.jsonc` (Cloudflare Pages config: `name`, `compatibility_date`, `pages_build_output_dir: "./dist"`)
+- `wrangler.workers.jsonc` (Workers static-assets config, used only by `npm run deploy:workers`: `assets: { directory: "./dist", not_found_handling: "404-page" }`)
 
 ### Option A1: Cloudflare Pages Direct ZIP Upload (No CLI Required)
 1. Log in to the Cloudflare Dashboard and open **Workers & Pages** -> **Create** -> **Pages** -> **Upload assets**.
@@ -66,7 +67,7 @@ npm run deploy:pages
 ### Option B: Cloudflare Workers Static Assets via Wrangler CLI
 ```bash
 npm run deploy:workers
-# Runs: astro build && wrangler deploy (uses wrangler.jsonc)
+# Runs: astro build && wrangler deploy -c wrangler.workers.jsonc
 ```
 
 ---
@@ -89,7 +90,10 @@ All site configuration lives exclusively in **`src/data/site.ts`** and **`src/da
 - [ ] **Contact Email (`src/data/site.ts` -> `contactEmail`):**
   - Replace `hello@caringforagingparents.page` with your active monitored inbox.
 - [ ] **Social Profile Links (`src/data/site.ts` -> `social`):**
-  - Replace `facebookUrl` and `pinterestUrl` placeholders with your live Facebook Page and Pinterest profile URLs.
+  - Handle used: `@caringforagingparentsofficial` (Facebook, Pinterest, X, Reddit). Each entry has `live: false`, so nothing shows in the footer or in structured data yet. Set `live: true` for an account once it exists.
+  - X usernames are limited to 15 characters and Reddit usernames to 20, so the full handle cannot be registered there. Update those two URLs after choosing a shorter handle.
+- [ ] **Contact form (`src/pages/contact.astro`):** The form sends nothing to a server. On phones and tablets it opens the mail app (`mailto:`); on computers it opens Gmail, Outlook.com, Yahoo Mail or the computer's mail app with the address, subject and message filled in. Its address comes from `contactEmail` in `src/data/site.ts`. Test it once on your own phone and computer after the real email address is live.
+- [ ] **Terms page (`src/pages/terms.astro`):** Plain-language personal-use terms; have it reviewed along with privacy and disclaimer.
 - [ ] **Google Search Console verification:** Add the token from Search Console as the Cloudflare Pages build environment variable `PUBLIC_GOOGLE_SITE_VERIFICATION`. The layout emits the `google-site-verification` meta tag only when this value is present.
 - [ ] **Privacy Policy & Disclaimer Review (`src/pages/privacy.astro`, `src/pages/disclaimer.astro`):**
   - Review both pages to ensure they match your business entity details and jurisdiction before going live.
@@ -102,7 +106,7 @@ All site configuration lives exclusively in **`src/data/site.ts`** and **`src/da
 
 1. **Centralized Configuration (`src/data/site.ts` & `src/data/products.ts`):** Assumed all 3 starter products should default to `status: "live"` so that `Product` JSON-LD is generated and testable in the production build, while supporting `status: "draft"` to suppress `Product` JSON-LD automatically if a product is marked draft.
 2. **Self-Hosted Typography (`@fontsource`):** Configured `Source Serif 4` (weights `600` and `700`) for headings and `Atkinson Hyperlegible` (weights `400` and `700`) for body copy and UI controls, self-hosted from `/_astro/*.woff2` with zero external requests to Google Fonts or third-party CDNs.
-3. **Flat Vector Illustrations & WebP Rendering:** Because the build container operates in an isolated offline sandbox without external AI image generation APIs, all 12 site illustrations (`hero/hero-home.webp`, `steps/*.webp`, `products/*.webp`, `sample/free-sample.webp`, `about/about-desk.webp`, `guides/*.webp`) were authored as bespoke flat-vector SVG illustrations in code following the exact 6-color palette lock (`#FAF8EC`, `#015A67`, `#81977A`, `#B96038`, `#52332A`, `#E89B69`, soft shapes, no outlines, zero text) and rendered via headless Chromium + Pillow to exact-dimension `.webp` files (`7 KB–23 KB` each, well under the `200 KB` limit). Both the `.webp` files and the editable `.svg` source files are included in `/public/images/`.
-4. **Programmatic OG & Facebook Cover Images:** Rendered `/public/og/og-1200x630` (`.jpg` + `.webp`) and `/public/og/facebook-cover-1640x624` (`.jpg` + `.webp`) programmatically in code using the brand color logo, bold serif teal title, legible sans tagline, and edge-bleeding sage/terracotta shapes, keeping all logo and text on the Facebook cover strictly within `x: 290..1350` (inside the required `x: 266..1374` mobile crop safe zone). Also placed a copy of `og-1200x630.jpg` and `.webp` at the `/public/` root for compatibility with the asset pack's `README.txt`.
+3. **Flat Vector Illustrations & WebP Rendering:** Because the build container operates in an isolated offline sandbox without external AI image generation APIs, all 12 site illustrations (`hero/hero-home.webp`, `steps/*.webp`, `products/*.webp`, `sample/free-sample.webp`, `about/about-desk.webp`, `guides/*.webp`) were authored as bespoke flat-vector SVG illustrations in code following the exact 6-color palette lock (`#FAF8EC`, `#015A67`, `#81977A`, `#B96038`, `#52332A`, `#E89B69`, soft shapes, no outlines, zero text) and rendered via headless Chromium + Pillow to exact-dimension `.webp` files (`7 KB–23 KB` each, well under the `200 KB` limit). The `.webp` files are in `/public/images/`; the editable `.svg` sources are in `/design-src/images/` (outside `public/`, so they are not deployed).
+4. **Programmatic OG & Facebook Cover Images:** Rendered `/public/og/og-1200x630` (`.jpg` + `.webp`) and `/public/og/facebook-cover-1640x624` (`.jpg` + `.webp`) programmatically in code using the brand color logo, bold serif teal title, legible sans tagline, and edge-bleeding sage/terracotta shapes, keeping all logo and text on the Facebook cover strictly within `x: 290..1350` (inside the required `x: 266..1374` mobile crop safe zone).
 5. **Silent Marketing Videos & Prompts:** Created both the 3 silent vertical `1080x1920` MP4 clips (`7 seconds`, `24 fps`, flat vector style, no text) in `/marketing-assets/videos/` AND the detailed shot-by-shot prompts in `/marketing-assets/video-prompts.md` (outside `/public/` so they are not deployed to the live website).
 6. **Strict Content & Accessibility Guardrails:** Enforced `color-scheme: light`, `19px` mobile / `20px` desktop base body text (never below `18px`), `1.65` line-height, `65ch` maximum line width, `>= 52px` button heights, `>= 48px` tap targets, `3px` `#015A67` focus rings, underlined links, native `<details>` elements for the mobile menu and FAQ (zero client JS), and a complete `@media print` stylesheet on every page.

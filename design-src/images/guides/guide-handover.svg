@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <rect width="1200" height="630" fill="#FAF8EC"/>
+  <circle cx="600" cy="315" r="380" fill="#B96038" fill-opacity="0.14"/>
+  <rect x="110" y="95" width="980" height="440" rx="42" fill="#52332A"/>
+
+  <!-- Left sibling arms reaching in with binder -->
+  <path d="M110 235 L 340 255 L 340 315 L 110 315 Z" fill="#015A67"/>
+  <ellipse cx="355" cy="285" rx="38" ry="28" fill="#E89B69"/>
+
+  <!-- Right sibling arms receiving binder -->
+  <path d="M1090 255 L 860 275 L 860 335 L 1090 335 Z" fill="#81977A"/>
+  <ellipse cx="845" cy="305" rx="38" ry="28" fill="#E89B69"/>
+
+  <!-- Shared Caregiver Handover Binder in center -->
+  <g transform="translate(365, 130)">
+    <rect x="0" y="0" width="470" height="370" rx="22" fill="#B96038"/>
+    <rect x="26" y="24" width="196" height="322" rx="10" fill="#FFFFFF"/>
+    <rect x="248" y="24" width="196" height="322" rx="10" fill="#FFFFFF"/>
+    <rect x="212" y="75" width="46" height="14" rx="7" fill="#52332A"/>
+    <rect x="212" y="178" width="46" height="14" rx="7" fill="#52332A"/>
+    <rect x="212" y="281" width="46" height="14" rx="7" fill="#52332A"/>
+
+    <rect x="50" y="54" width="130" height="18" rx="9" fill="#015A67"/>
+    <rect x="50" y="92" width="148" height="64" rx="8" fill="#FAF8EC"/>
+    <rect x="64" y="112" width="110" height="12" rx="6" fill="#81977A"/>
+    <rect x="50" y="174" width="148" height="64" rx="8" fill="#FAF8EC"/>
+    <rect x="64" y="194" width="120" height="12" rx="6" fill="#81977A"/>
+    <rect x="50" y="256" width="148" height="64" rx="8" fill="#FAF8EC"/>
+
+    <rect x="272" y="54" width="130" height="18" rx="9" fill="#B96038"/>
+    <rect x="272" y="92" width="148" height="110" rx="8" fill="#FAF8EC"/>
+    <rect x="286" y="116" width="115" height="12" rx="6" fill="#015A67"/>
+    <rect x="286" y="142" width="95" height="12" rx="6" fill="#81977A"/>
+    <rect x="272" y="220" width="148" height="98" rx="8" fill="#FAF8EC"/>
+  </g>
+</svg>

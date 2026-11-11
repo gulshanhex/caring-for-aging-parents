@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900" fill="none">
+  <rect width="900" height="900" fill="#FAF8EC"/>
+  <circle cx="450" cy="450" r="375" fill="#81977A" fill-opacity="0.16"/>
+
+  <!-- Left sibling (sage sweater) -->
+  <circle cx="235" cy="295" r="72" fill="#52332A"/>
+  <rect x="180" y="250" width="110" height="135" rx="55" fill="#E89B69"/>
+  <path d="M175 290 C 180 230, 290 230, 295 290 C 265 265, 205 265, 175 290 Z" fill="#52332A"/>
+  <rect x="208" y="310" width="18" height="5" rx="2.5" fill="#52332A"/>
+  <rect x="246" y="310" width="18" height="5" rx="2.5" fill="#52332A"/>
+  <path d="M220 348 Q 235 360 250 348" fill="#B96038"/>
+  <path d="M95 660 C 105 470, 165 415, 235 415 C 305 415, 365 470, 375 660 Z" fill="#81977A"/>
+
+  <!-- Right sibling (terracotta cardigan) -->
+  <circle cx="665" cy="295" r="74" fill="#52332A"/>
+  <rect x="610" y="250" width="110" height="135" rx="55" fill="#E89B69"/>
+  <path d="M605 295 C 610 225, 720 225, 725 295 C 690 265, 635 265, 605 295 Z" fill="#52332A"/>
+  <rect x="638" y="310" width="18" height="5" rx="2.5" fill="#52332A"/>
+  <rect x="676" y="310" width="18" height="5" rx="2.5" fill="#52332A"/>
+  <path d="M650 348 Q 665 360 680 348" fill="#B96038"/>
+  <path d="M525 660 C 535 470, 595 415, 665 415 C 735 415, 795 470, 805 660 Z" fill="#B96038"/>
+
+  <!-- Center sibling (teal top) -->
+  <circle cx="450" cy="245" r="78" fill="#52332A"/>
+  <rect x="392" y="200" width="116" height="142" rx="58" fill="#E89B69"/>
+  <path d="M388 245 C 392 175, 508 175, 512 245 C 475 215, 425 215, 388 245 Z" fill="#52332A"/>
+  <rect x="420" y="262" width="20" height="5" rx="2.5" fill="#52332A"/>
+  <rect x="460" y="262" width="20" height="5" rx="2.5" fill="#52332A"/>
+  <path d="M434 302 Q 450 315 466 302" fill="#B96038"/>
+  <path d="M295 660 C 310 430, 375 370, 450 370 C 525 370, 590 430, 605 660 Z" fill="#015A67"/>
+
+  <!-- Table bottom band -->
+  <rect x="80" y="640" width="740" height="170" rx="34" fill="#52332A"/>
+
+  <!-- One shared open caregiving binder in center -->
+  <g transform="translate(235, 470)">
+    <rect x="0" y="0" width="430" height="250" rx="20" fill="#B96038"/>
+    <!-- Left and right open white pages inside binder -->
+    <rect x="22" y="18" width="184" height="214" rx="8" fill="#FFFFFF"/>
+    <rect x="224" y="18" width="184" height="214" rx="8" fill="#FFFFFF"/>
+    <!-- Binder rings in middle -->
+    <rect x="198" y="55" width="34" height="12" rx="6" fill="#52332A"/>
+    <rect x="198" y="119" width="34" height="12" rx="6" fill="#52332A"/>
+    <rect x="198" y="183" width="34" height="12" rx="6" fill="#52332A"/>
+    <!-- Abstract grey/teal/sage bars on the pages -->
+    <rect x="42" y="40" width="110" height="16" rx="8" fill="#015A67"/>
+    <rect x="42" y="72" width="144" height="42" rx="6" fill="#FAF8EC"/>
+    <rect x="52" y="86" width="105" height="12" rx="6" fill="#81977A"/>
+    <rect x="42" y="128" width="144" height="42" rx="6" fill="#FAF8EC"/>
+    <rect x="52" y="142" width="120" height="12" rx="6" fill="#81977A"/>
+
+    <rect x="244" y="40" width="115" height="16" rx="8" fill="#B96038"/>
+    <rect x="244" y="72" width="144" height="42" rx="6" fill="#FAF8EC"/>
+    <rect x="254" y="86" width="115" height="12" rx="6" fill="#81977A"/>
+    <rect x="244" y="128" width="144" height="75" rx="6" fill="#FAF8EC"/>
+    <rect x="254" y="146" width="120" height="12" rx="6" fill="#015A67" fill-opacity="0.6"/>
+    <rect x="254" y="170" width="95" height="12" rx="6" fill="#81977A"/>
+  </g>
+  <!-- Siblings' hands resting together on binder edges -->
+  <ellipse cx="230" cy="605" rx="34" ry="22" fill="#E89B69"/>
+  <ellipse cx="670" cy="605" rx="34" ry="22" fill="#E89B69"/>
+  <ellipse cx="450" cy="468" rx="32" ry="20" fill="#E89B69"/>
+</svg>

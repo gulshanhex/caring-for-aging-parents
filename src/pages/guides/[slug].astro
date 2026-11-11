@@ -33,6 +33,7 @@ const pagePath = `/guides/${guide.id.replace(/\.md$/, '')}/`;
   title={seoTitle}
   description={guide.data.description}
   canonicalPath={pagePath}
+  canonicalOverride={guide.id.replace(/\.md$/, '') === "how-to-print-large-print-sheets" ? "/how-to-print/" : undefined}
   breadcrumbs={[
     { label: "Guides", href: "/guides/" },
     { label: guide.data.title, href: pagePath },

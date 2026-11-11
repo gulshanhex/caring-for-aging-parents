@@ -17,6 +17,9 @@ interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
+  /** Use when a page is a near-duplicate of another page and should point search engines to it. */
+  canonicalOverride?: string;
+  noindex?: boolean;
   ogImage?: string;
   breadcrumbs?: BreadcrumbItem[];
   productJsonLd?: Record<string, unknown> | null;
@@ -27,6 +30,8 @@ const {
   title,
   description,
   canonicalPath = Astro.url.pathname,
+  canonicalOverride,
+  noindex = false,
   ogImage,
   breadcrumbs = [],
   productJsonLd = null,
@@ -37,8 +42,10 @@ const defaultOgImage =
   canonicalPath === "/404.html"
     ? "/og/og-1200x630.jpg"
     : `/og/pages/${canonicalPath === "/" ? "home" : canonicalPath.replace(/^\//, "").replace(/\/$/, "").replaceAll("/", "-")}.jpg`;
-const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
+const canonicalUrl = new URL(canonicalOverride ?? canonicalPath, siteConfig.url).toString();
 const absoluteOgImage = new URL(ogImage ?? defaultOgImage, siteConfig.url).toString();
+
+const sameAsLinks = siteConfig.social.filter((item) => item.live).map((item) => item.url);
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -47,7 +54,7 @@ const organizationJsonLd = {
   url: siteConfig.url,
   logo: new URL("/images/brand/logo-1024.png", siteConfig.url).toString(),
   description: siteConfig.tagline,
-  sameAs: [siteConfig.social.facebookUrl, siteConfig.social.pinterestUrl],
+  ...(sameAsLinks.length > 0 ? { sameAs: sameAsLinks } : {}),
 };
 
 const websiteJsonLd = {
@@ -75,6 +82,7 @@ const webpageJsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex" />}
     {GOOGLE_SITE_VERIFICATION && <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />}
 
     <!-- Favicons & Web App Manifest -->

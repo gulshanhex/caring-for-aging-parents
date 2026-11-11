@@ -19,7 +19,7 @@ Here is a calm, step-by-step routine to get full-size, easy-to-read pages from a
 
 ## 1. Always choose "Actual Size" or "100% Scale"
 
-When you open the print window on your computer, look for a setting called **Scale**, **Page Sizing**, or **Fit**. Many home printers default to "Fit to Printable Area" or "Shrink to Fit." That setting pulls all four edges inward by about ten percent. It makes every word, checkbox, and handwriting box smaller than it was designed to be.
+When you open the print window on your computer, look for a setting called **Scale**, **Page Sizing**, or **Fit**. Many home printers default to "Fit to Printable Area" or "Shrink to Fit." That setting can pull all four edges inward. It makes every word, checkbox, and handwriting box smaller than it was designed to be.
 
 Switch that setting to **100%** or **Actual Size**. All of our printable sheets are laid out for standard US Letter paper (8.5 by 11 inches) with safe margins already built in around the edges. Nothing will get cut off when you print at full size.
 
@@ -29,7 +29,7 @@ If your parent lives in a place that uses A4 paper, you can still print the shee
 
 Colored ink often looks pale under a warm kitchen lamp in the evening. Light grey lines or pastel boxes are even harder to tell apart when eyes are tired.
 
-Before you press the print button, check the box for **Black and White** or **Grayscale**. If your printer has an "Eco," "Draft," or "Toner Save" mode, turn that mode off for these sheets. Normal black ink gives you solid dark lines and crisp headings against white paper. High contrast between dark ink and light paper is the single biggest help for older eyes.
+Before you press the print button, check the box for **Black and White** or **Grayscale**. If your printer has an "Eco," "Draft," or "Toner Save" mode, turn that mode off for these sheets. Normal black ink gives you solid dark lines and crisp headings against white paper. High contrast between dark ink and light paper makes a page much easier to read, especially for older eyes.
 
 ## 3. Pick paper that feels sturdy in the hand
 
