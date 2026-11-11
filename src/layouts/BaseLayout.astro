@@ -44,6 +44,26 @@ const defaultOgImage =
     : `/og/pages/${canonicalPath === "/" ? "home" : canonicalPath.replace(/^\//, "").replace(/\/$/, "").replaceAll("/", "-")}.jpg`;
 const canonicalUrl = new URL(canonicalOverride ?? canonicalPath, siteConfig.url).toString();
 const absoluteOgImage = new URL(ogImage ?? defaultOgImage, siteConfig.url).toString();
+const pageKind =
+  canonicalPath === "/"
+    ? "home"
+    : canonicalPath === "/shop/"
+    ? "shop"
+    : canonicalPath.startsWith("/shop/")
+      ? "product"
+      : canonicalPath === "/guides/"
+        ? "guides"
+        : canonicalPath.startsWith("/guides/")
+          ? "guide"
+          : canonicalPath === "/contact/"
+            ? "contact"
+            : canonicalPath === "/faq/"
+              ? "faq"
+              : canonicalPath === "/free-sample/"
+                ? "sample"
+                : canonicalPath === "/about/"
+                  ? "about"
+                  : "article";
 
 const sameAsLinks = siteConfig.social.filter((item) => item.live).map((item) => item.url);
 
@@ -137,14 +157,29 @@ const webpageJsonLd = {
   <body class="flex min-h-screen flex-col bg-canvas text-ink">
     <div id="site-loading" class="site-loading" hidden aria-live="polite" aria-busy="true">
       <div class="site-loading-bar" aria-hidden="true"></div>
-      <div class="site-loading-card" role="status">
+      <div class="site-loading-content" role="status">
         <div class="loading-spinner" aria-hidden="true"></div>
         <p class="site-loading-title">Loading page</p>
         <p class="site-loading-subtitle">Just a moment…</p>
-        <div class="loading-skeleton-block" aria-hidden="true">
-          <span class="skeleton-line skeleton-line-wide"></span>
-          <span class="skeleton-line skeleton-line-medium"></span>
-          <span class="skeleton-line skeleton-line-short"></span>
+        <div class:list={["page-skeleton", `page-skeleton-${pageKind}`]} aria-hidden="true">
+          {
+            pageKind === "home" ? (
+              <>
+                <div class="skeleton-hero-copy"><span></span><span></span><span></span><span class="short"></span></div>
+                <div class="skeleton-hero-image"></div>
+              </>
+            ) : pageKind === "shop" ? (
+              <div class="skeleton-card-grid">{[1, 2, 3].map(() => <div class="skeleton-product-card"><span class="skeleton-card-image"></span><span></span><span></span><span class="short"></span><i></i><i></i></div>)}</div>
+            ) : pageKind === "product" ? (
+              <div class="skeleton-product-detail"><span class="skeleton-detail-image"></span><div><span></span><span></span><span></span><span class="short"></span><i></i></div></div>
+            ) : pageKind === "contact" ? (
+              <div class="skeleton-form"><span></span><i></i><span></span><i class="tall"></i><i></i></div>
+            ) : pageKind === "faq" ? (
+              <div class="skeleton-faq">{[1, 2, 3, 4].map(() => <span></span>)}</div>
+            ) : (
+              <div class="skeleton-article"><span></span><span></span><span></span><span class="wide"></span><span></span><span class="short"></span></div>
+            )
+          }
         </div>
       </div>
     </div>
