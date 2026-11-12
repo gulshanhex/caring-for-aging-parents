@@ -68,6 +68,10 @@ const allFaqs = [...buyingFaqs, ...faqs];
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${siteConfig.url}/faq/#faq`,
+  url: `${siteConfig.url}/faq/`,
+  name: "Frequently Asked Questions | Caring for Aging Parents",
+  description: "Plain answers about downloading, printing, buying, and using our large-print family caregiving PDF sheets.",
   datePublished: publishedDate,
   dateModified: modifiedDate,
   author: {
@@ -104,7 +108,7 @@ const faqJsonLd = {
         Everything you need to know about how our printable PDFs work, how to print them at home, and how Gumroad delivers your files.
       </p>
       <p class="mt-4 text-muted">
-        Written by <strong>{siteConfig.author.name}</strong>. Published {publishedDate}; updated {modifiedDate}.
+        Written by <strong>{siteConfig.author.name}</strong>. Published <time datetime={publishedDate}>{publishedDate}</time>; updated <time datetime={modifiedDate}>{modifiedDate}</time>.
         {" "}{siteConfig.author.bio}
       </p>
 
