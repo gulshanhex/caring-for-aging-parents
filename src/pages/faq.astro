@@ -1,54 +1,81 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../data/site";
+import FaqList from "../components/FaqList.astro";
+
+const publishedDate = "2026-11-13";
+const modifiedDate = "2026-11-13";
 
 const faqs = [
   {
-    q: "1. What exactly do I receive when I buy a printable?",
-    a: "You receive a digital PDF file formatted for standard US Letter paper (8.5 by 11 inches). No physical binder or paper is mailed to your house. You download the PDF file right after checkout and print the pages at home or at a local print shop.",
+    q: "What exactly do I receive when I buy a printable?",
+    a: "You receive a digital PDF file formatted for standard US Letter paper (8.5 by 11 inches). No physical binder or paper is mailed to your house. Follow the download instructions shown after checkout.",
   },
   {
-    q: "2. Why are these designed to be filled in by hand instead of typed on a computer?",
+    q: "Why are these designed to be filled in by hand instead of typed on a computer?",
     a: "In real family caregiving, updates happen at the kitchen counter while you are putting away groceries or heading out the door. Writing a two-minute note by hand with a pen is faster than opening a laptop, and it lets your parent and visiting siblings read the sheet immediately without needing a phone or password.",
   },
   {
-    q: "3. Will the print be large enough for my parent to read?",
+    q: "Will the print be large enough for my parent to read?",
     a: "We design every sheet in large print, with bold headings, high-contrast black lines on white paper, and tall writing boxes. Everyone's eyes are different, so download our free sample page first and try the 30-second arm's-length test in your parent's kitchen before buying.",
   },
   {
-    q: "4. How many times can I print a PDF after I buy it?",
+    q: "How many times can I print a PDF after I buy it?",
     a: "You can print the pages as many times as your own family needs. When a weekly handover sheet fills up, or when a phone number changes, simply print a fresh page. Please do not resell or share the PDF files; the details are on our Terms page.",
   },
   {
-    q: "5. Do I need a color printer?",
+    q: "Do I need a color printer?",
     a: "No. Every printable pack is designed to print cleanly in standard black and white (grayscale) on any home inkjet or laser printer.",
   },
   {
-    q: "6. Can I print these on A4 paper if I live outside North America?",
+    q: "Can I print these on A4 paper if I live outside North America?",
     a: "Yes. While the pages are sized for US Letter paper (8.5 by 11 inches), they print cleanly on A4 paper when you choose 'Fit to Printable Area' in your printer settings.",
   },
   {
-    q: "7. How do payments and file delivery work?",
-    a: "We do not collect credit card numbers on this website. When you click any Buy button, you are taken to our product page on Gumroad, which handles payment processing and instant PDF file delivery securely.",
-  },
-  {
-    q: "8. What are the refund terms?",
-    a: "Refund terms are shown on the Gumroad product page before you complete your purchase. If you have any trouble downloading or opening your PDF file, email us and we will do our best to help.",
-  },
-  {
-    q: "9. What should I never write on the sheets?",
+    q: "What should I never write on the sheets?",
     a: "Write down only physical locations in the house (such as which drawer holds a folder) and company names. Never write passwords, PINs, Social Security numbers, or account numbers on your printed sheets. Because a filled-in organizer can show where papers and spare keys are kept, keep it in a private spot at home rather than on display. Only a phone list, like the Who-to-Call Sheet, belongs on the fridge.",
   },
   {
-    q: "10. Do your sheets include medical, legal, or financial advice?",
+    q: "Do your sheets include medical, legal, or financial advice?",
     a: "No. Our sheets are strictly plain-English organizational tools for everyday family logistics, contact lists, and household routines. They do not provide medical, legal, or financial advice. Please speak to a qualified professional for those matters.",
   },
 ];
 
+const buyingFaqs = [
+  {
+    q: "Why can't I buy directly on this website?",
+    a: "Caring for Aging Parents is a small independent shop. Instead of building and maintaining our own card-payment system, we send checkout to a specialist digital-product service.",
+  },
+  {
+    q: "What is Gumroad, and why is it used here?",
+    a: "Gumroad is the checkout and delivery service linked from our product buttons. It gives you a separate place to enter payment details and receive the digital product after checkout.",
+  },
+  {
+    q: "Is paying there safe?",
+    a: "We do not collect or see your full card number on this website. Payment details are entered on Gumroad's checkout page. Review the checkout page and its terms before completing an order; we do not make an absolute '100% safe' claim.",
+  },
+  {
+    q: "How will I receive the PDF, and do I need an account?",
+    a: "You do not need an account on this website. After you continue to Gumroad, follow the download and email instructions shown in that checkout flow. We have not added a claim about a Gumroad account requirement because that can depend on the checkout experience shown to you.",
+  },
+  {
+    q: "What will appear on my card statement, and how do refunds work?",
+    a: "Check the payment descriptor and refund terms shown by Gumroad on the relevant checkout or product page before paying. Refund terms can vary by product, so the product page is the controlling source. If a download will not open, contact us and we will try to help.",
+  },
+];
+
+const allFaqs = [...buyingFaqs, ...faqs];
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((item) => ({
+  datePublished: publishedDate,
+  dateModified: modifiedDate,
+  author: {
+    "@type": "Organization",
+    name: siteConfig.author.name,
+    description: siteConfig.author.bio,
+  },
+  mainEntity: allFaqs.map((item) => ({
     "@type": "Question",
     name: item.q,
     acceptedAnswer: {
@@ -57,13 +84,16 @@ const faqJsonLd = {
     },
   })),
 };
+
 ---
 <BaseLayout
   title="Frequently Asked Questions | Caring for Aging Parents"
-  description="Plain answers about downloading, printing, and using our large-print family caregiving PDF sheets, plus Gumroad checkout details."
+  description="Plain answers about downloading, printing, buying, and using our large-print family caregiving PDF sheets."
   canonicalPath="/faq/"
   breadcrumbs={[{ label: "FAQ", href: "/faq/" }]}
   faqJsonLd={faqJsonLd}
+  publishedDate={publishedDate}
+  modifiedDate={modifiedDate}
 >
   <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
     <div class="prose-measure">
@@ -73,22 +103,27 @@ const faqJsonLd = {
       <p class="mt-4 text-ink">
         Everything you need to know about how our printable PDFs work, how to print them at home, and how Gumroad delivers your files.
       </p>
+      <p class="mt-4 text-muted">
+        Written by <strong>{siteConfig.author.name}</strong>. Published {publishedDate}; updated {modifiedDate}.
+        {" "}{siteConfig.author.bio}
+      </p>
 
-      <div class="mt-10 space-y-4">
-        {
-          faqs.map((item) => (
-            <details class="rounded-xl border-2 border-warm-border bg-cream p-5">
-              <summary class="font-bold text-teal">
-                <span>{item.q}</span>
-                <span aria-hidden="true" class="ml-4 text-lg font-bold text-teal">+</span>
-              </summary>
-              <p class="mt-4 border-t border-warm-border pt-4 text-ink">
-                {item.a}
-              </p>
-            </details>
-          ))
-        }
-      </div>
+      <section id="buying-downloads" class="mt-10 scroll-mt-6" aria-labelledby="buying-downloads-heading">
+        <h2 id="buying-downloads-heading" class="font-serif text-teal">
+          Buying &amp; downloads
+        </h2>
+        <p class="mt-3 text-ink">
+          These answers explain why checkout opens on Gumroad and what to look for before completing a digital purchase.
+        </p>
+        <FaqList items={buyingFaqs} />
+      </section>
+
+      <section class="mt-12" aria-labelledby="printables-heading">
+        <h2 id="printables-heading" class="font-serif text-teal">
+          Printables &amp; everyday use
+        </h2>
+        <FaqList items={faqs} />
+      </section>
 
       <div class="mt-12 rounded-xl border-2 border-warm-border bg-canvas p-6">
         <h2 class="font-serif text-teal">

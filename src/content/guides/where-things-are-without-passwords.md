@@ -9,6 +9,7 @@ coverAlt: "Flat illustration of organized color-coded folders, a printed locatio
 relatedProductSlug: "where-everything-is-organizer"
 order: 3
 publishedDate: "2026-11-10"
+modifiedDate: "2026-11-13"
 ---
 
 Every household has its own quiet memory system. In most homes, one person knows that the spare back-door key hangs on a brass hook inside the broom closet, the appliance instruction booklets sit in a shoebox on the laundry shelf, and the town water bill arrives every three months in a blue envelope.

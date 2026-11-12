@@ -50,6 +50,12 @@ import ShareButton from "../components/ShareButton.astro";
           >
             Get the free sample sheet ($0 on Gumroad)
           </a>
+          <p class="mt-3 text-muted">
+            You’ll continue to Gumroad’s checkout to request the sample and follow its email/download instructions.
+          </p>
+          <a href="/faq/#buying-downloads" class="mt-2 inline-flex min-h-12 items-center text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover">
+            Why Gumroad?
+          </a>
           <div class="mt-4">
             <ShareButton
               url={new URL("/free-sample/", siteConfig.url).toString()}

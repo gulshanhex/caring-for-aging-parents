@@ -1,0 +1,44 @@
+# Caring for Aging Parents
+
+Caring for Aging Parents publishes large-print, fill-in-by-hand PDF sheets and plain-English guides for everyday family caregiving.
+
+## Audience
+
+Adult children, siblings, relatives, neighbors, and helpers who share practical household routines, contact information, errands, and visit handovers for an aging parent.
+
+## Main pages
+
+- Home: https://caring-for-aging-parents.pages.dev/
+- Shop: https://caring-for-aging-parents.pages.dev/shop/
+- FAQ and buying/downloads answers: https://caring-for-aging-parents.pages.dev/faq/
+- Free sample: https://caring-for-aging-parents.pages.dev/free-sample/
+- Guides: https://caring-for-aging-parents.pages.dev/guides/
+- How to print: https://caring-for-aging-parents.pages.dev/how-to-print/
+- Contact: https://caring-for-aging-parents.pages.dev/contact/
+- Disclaimer: https://caring-for-aging-parents.pages.dev/disclaimer/
+- Privacy: https://caring-for-aging-parents.pages.dev/privacy/
+- Terms: https://caring-for-aging-parents.pages.dev/terms/
+
+## Products
+
+The shop offers printable PDF packs for caregiver handovers, household phone contacts, and safely recording where household items and folders are kept. Products are organizational tools, not medical, legal, or financial advice.
+
+## Buying and delivery
+
+Product buttons continue to a Gumroad checkout for payment and digital-product delivery. The website does not collect full card numbers. Checkout, delivery, account, and refund details should be read on the relevant Gumroad page before purchase.
+
+## Author
+
+CaringForAgingParentsOfficial is the editorial voice behind the site's plain-English caregiving tools and guides.
+
+## Contact
+
+Email: hello@caringforagingparents.page
+
+## Structured data and freshness
+
+Pages expose crawlable HTML, canonical URLs, relevant FAQ or Article structured data where applicable, and visible publication/update dates on guides and the FAQ page.
+
+## Sitemap
+
+https://caring-for-aging-parents.pages.dev/sitemap.xml

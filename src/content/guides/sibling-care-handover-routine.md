@@ -9,6 +9,7 @@ coverAlt: "Flat illustration of two siblings handing an open caregiving binder a
 relatedProductSlug: "caregiver-handover-sheet"
 order: 2
 publishedDate: "2026-11-10"
+modifiedDate: "2026-11-13"
 ---
 
 When two or three adult children take turns helping an aging parent during the week, almost every family starts with a group text thread. In the beginning, texting feels fast and easy. Then life gets busy and the messages start piling up.

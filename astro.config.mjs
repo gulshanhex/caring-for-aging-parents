@@ -10,7 +10,10 @@ export default defineConfig({
   integrations: [
     sitemap({
       // /guides/how-to-print-large-print-sheets/ points its canonical at /how-to-print/
-      filter: (page) => !page.includes("/guides/how-to-print-large-print-sheets/"),
+      filter: (page) =>
+        !page.includes("/guides/how-to-print-large-print-sheets/") &&
+        !page.endsWith("/sitemap.xml") &&
+        !page.endsWith("/robots.txt"),
     }),
   ],
   vite: {

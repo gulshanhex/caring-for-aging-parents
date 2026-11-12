@@ -9,6 +9,7 @@ coverAlt: "Flat illustration of a home printer and two hands holding up a large-
 relatedProductSlug: "who-to-call-sheet"
 order: 1
 publishedDate: "2026-11-10"
+modifiedDate: "2026-11-13"
 ---
 
 When you print a phone list or a weekly schedule for an aging parent, one small setting on your computer can change how the whole page looks. Many home computers and phones shrink pages automatically without asking you first. A sheet that looked big and roomy on your laptop screen can come out of the printer with cramped boxes, narrow margins, and tiny words.

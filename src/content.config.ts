@@ -14,6 +14,7 @@ const guides = defineCollection({
     relatedProductSlug: z.string(),
     order: z.number(),
     publishedDate: z.string(),
+    modifiedDate: z.string().optional(),
   }),
 });
 

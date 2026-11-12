@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
 import { products } from "../../data/products";
+import { siteConfig } from "../../data/site";
 
 export async function getStaticPaths() {
   const guides = await getCollection("guides");
@@ -28,6 +29,29 @@ const shortTitleMap: Record<string, string> = {
 const seoTitle =
   shortTitleMap[guide.id.replace(/\.md$/, '')] || `${guide.data.title.slice(0, 28)} | Caring for Aging Parents`;
 const pagePath = `/guides/${guide.id.replace(/\.md$/, '')}/`;
+const publishedDate = guide.data.publishedDate;
+const modifiedDate = guide.data.modifiedDate ?? publishedDate;
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: guide.data.title,
+  description: guide.data.description,
+  image: new URL(guide.data.coverImage, siteConfig.url).toString(),
+  datePublished: publishedDate,
+  dateModified: modifiedDate,
+  author: {
+    "@type": "Organization",
+    name: siteConfig.author.name,
+    description: siteConfig.author.bio,
+    url: siteConfig.url,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+  mainEntityOfPage: new URL(pagePath, siteConfig.url).toString(),
+};
 ---
 <BaseLayout
   title={seoTitle}
@@ -38,13 +62,19 @@ const pagePath = `/guides/${guide.id.replace(/\.md$/, '')}/`;
     { label: "Guides", href: "/guides/" },
     { label: guide.data.title, href: pagePath },
   ]}
+  articleJsonLd={articleJsonLd}
+  publishedDate={publishedDate}
+  modifiedDate={modifiedDate}
 >
   <article class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
     <!-- Anthropic/Medium inspired calm long-form article header -->
     <div class="prose-measure">
-      <p class="font-bold text-muted">
-        Practical Organization Guide &middot; {guide.data.readingTime}
-      </p>
+          <p class="font-bold text-muted">
+            Practical Organization Guide &middot; {guide.data.readingTime}
+          </p>
+          <p class="mt-2 text-muted">
+            By <strong>{siteConfig.author.name}</strong> · Published {publishedDate} · Updated {modifiedDate}
+          </p>
       <h1 class="mt-2 font-serif text-teal">
         {guide.data.title}
       </h1>

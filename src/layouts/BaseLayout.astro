@@ -24,6 +24,9 @@ interface Props {
   breadcrumbs?: BreadcrumbItem[];
   productJsonLd?: Record<string, unknown> | null;
   faqJsonLd?: Record<string, unknown> | null;
+  articleJsonLd?: Record<string, unknown> | null;
+  publishedDate?: string;
+  modifiedDate?: string;
 }
 
 const {
@@ -36,6 +39,9 @@ const {
   breadcrumbs = [],
   productJsonLd = null,
   faqJsonLd = null,
+  articleJsonLd = null,
+  publishedDate,
+  modifiedDate,
 } = Astro.props;
 
 const defaultOgImage =
@@ -92,6 +98,14 @@ const webpageJsonLd = {
   description,
   url: canonicalUrl,
   isPartOf: { "@type": "WebSite", name: siteConfig.name, url: siteConfig.url },
+  author: {
+    "@type": "Organization",
+    name: siteConfig.author.name,
+    description: siteConfig.author.bio,
+    url: siteConfig.url,
+  },
+  ...(publishedDate ? { datePublished: publishedDate } : {}),
+  ...(modifiedDate ? { dateModified: modifiedDate } : {}),
 };
 ---
 <!doctype html>
@@ -101,6 +115,7 @@ const webpageJsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.author.name} />
     <link rel="canonical" href={canonicalUrl} />
     {noindex && <meta name="robots" content="noindex" />}
     {GOOGLE_SITE_VERIFICATION && <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />}
@@ -147,6 +162,12 @@ const webpageJsonLd = {
     {
       faqJsonLd && (
         <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />
+      )
+    }
+
+    {
+      articleJsonLd && (
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(articleJsonLd)} />
       )
     }
 

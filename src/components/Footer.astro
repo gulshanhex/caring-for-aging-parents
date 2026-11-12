@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../data/site";
+import SocialIcon from "./SocialIcon.astro";
 const currentYear = new Date().getFullYear();
 const liveSocial = siteConfig.social.filter((item) => item.live);
 ---
@@ -94,8 +95,10 @@ const liveSocial = siteConfig.social.filter((item) => item.live);
                     <a
                       href={item.url}
                       rel="noopener noreferrer"
-                      class="inline-flex min-h-12 items-center py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
+                      class="inline-flex min-h-12 items-center gap-2 py-1.5 text-teal underline decoration-2 underline-offset-4 hover:text-teal-hover"
+                      aria-label={`${item.name}: ${item.url}`}
                     >
+                      <SocialIcon name={item.name} />
                       {item.name}
                     </a>
                   </li>

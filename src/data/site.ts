@@ -3,6 +3,7 @@ export interface SiteConfig {
   tagline: string;
   url: string;
   contactEmail: string;
+  author: { name: string; bio: string };
   gumroadStoreUrl: string;
   freeSampleUrl: string;
   // Links are shown in the footer and in structured data only when `live` is true.
@@ -29,6 +30,10 @@ export const siteConfig: SiteConfig = {
   tagline: "Large-print, fill-in-by-hand sheets that keep family caregiving organized",
   url: SITE_URL,
   contactEmail: "hello@caringforagingparents.page",
+  author: {
+    name: "CaringForAgingParentsOfficial",
+    bio: "The editorial voice behind plain-English, large-print tools for everyday family caregiving.",
+  },
   gumroadStoreUrl: "https://caringforagingparents.gumroad.com",
   freeSampleUrl: "https://caringforagingparents.gumroad.com/l/free-sample-handover-page",
   // Social profiles supplied for the footer.
@@ -46,7 +51,7 @@ export const siteConfig: SiteConfig = {
   },
   disclaimerText:
     "These are organizational tools, not medical, legal, or financial advice. Please speak to a qualified professional.",
-  paymentNotice: "Payments are handled securely by Gumroad.",
+  paymentNotice: "Checkout and digital delivery are handled by Gumroad.",
   navLinks: [
     { label: "Shop", href: "/shop/" },
     { label: "Free Sample", href: "/free-sample/" },
