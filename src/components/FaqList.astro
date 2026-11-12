@@ -6,20 +6,32 @@ interface FaqItem {
 
 interface Props {
   items: FaqItem[];
+  schema?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, schema = false } = Astro.props;
 ---
 <div class="mt-6 space-y-4">
   {
     items.map((item) => (
-      <details class="rounded-xl border-2 border-warm-border bg-cream p-5">
+      <details
+        class="rounded-xl border-2 border-warm-border bg-cream p-5"
+        itemscope={schema ? true : undefined}
+        itemtype={schema ? "https://schema.org/Question" : undefined}
+      >
         <summary class="font-bold text-teal">
-          <span>{item.q}</span>
+          <span itemprop={schema ? "name" : undefined}>{item.q}</span>
           <span aria-hidden="true" class="ml-4 text-lg font-bold text-teal">+</span>
         </summary>
-        <p class="mt-4 border-t border-warm-border pt-4 text-ink">
+        <p
+          class="mt-4 border-t border-warm-border pt-4 text-ink"
+          itemprop={schema ? "acceptedAnswer" : undefined}
+          itemscope={schema ? true : undefined}
+          itemtype={schema ? "https://schema.org/Answer" : undefined}
+        >
+          <span itemprop={schema ? "text" : undefined}>
           {item.a}
+          </span>
         </p>
       </details>
     ))
